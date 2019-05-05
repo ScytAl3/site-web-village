@@ -5,15 +5,15 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-class EvenementController extends AbstractController
+class HistoriqueController extends AbstractController
 {
     /**
-     * @Route("/evenement", name="evenement")
+     * @Route("/historique", name="historique")
      */
     public function index()
     {
-        return $this->render('evenement/index.html.twig', [
-            'titre' => 'Mon premier événement'
+        return $this->render('historique/index.html.twig', [
+            'controller_name' => 'HistoriqueController',
         ]);
     }
 }
