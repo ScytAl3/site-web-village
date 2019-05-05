@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Création d'événements
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div>
+            <h1>Création d'un événement</h1>
+        </div>
+        <hr>
+        <br>
+
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+
+                {{ message }}
+
+            {% endfor %}
+        {% endfor %}
+
+        {{ form_start(form) }}
+
+
+        {{ form_end(form) }}
+
+    </div>
+{% endblock %}

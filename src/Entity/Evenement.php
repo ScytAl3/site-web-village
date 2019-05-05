@@ -59,7 +59,7 @@ class Evenement
     /**
      * @var \DateTime
      * 
-     * @ORM\Column(name="cree_le", type="datetime")
+     * @ORM\Column(name="cree_le", type="datetime", nullable=true)
      */
     private $createAt;
 
@@ -193,7 +193,7 @@ class Evenement
     /**
      * Set createAt
      *
-     * @param \DateTimeInterface $createAt
+     * @param \DateTimeInterface|null $createAt
      * @return self
      */
     public function setCreateAt(\DateTimeInterface $createAt): self
@@ -206,7 +206,7 @@ class Evenement
     /**
      * Get updateAt
      *
-     * @return \DateTimeInterface|null
+     * @return \DateTimeInterface
      */
     public function getUpdateAt(): ?\DateTimeInterface
     {
