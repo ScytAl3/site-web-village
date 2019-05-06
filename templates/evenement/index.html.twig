@@ -12,7 +12,7 @@
 
             <div class="container">
                 {% for event in properties %}
-                    <article  class="border border-primary rounded">
+                    <article class="border border-primary rounded">
                         <p>{{ event.getTitre() }}</p>
                         <div>{{ event.getDescription() }}</div>
                         <div>{{ event.getCorps() }}</div>
@@ -21,8 +21,9 @@
                 {% endfor %}
             </tbody>
         </table>
-    {% else %}
-        <p>Il n'y a aucun événement à afficher !</p>
-    {% endif %}
+        {% else %}
+            <p>Il n'y a aucun événement à afficher !</p>
+        {% endif %}
+    </div>
 
-</div>{% endblock %}
+{% endblock %}

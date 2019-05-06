@@ -36,6 +36,20 @@ class Evenement
     private $titre;
 
     /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="date_debut", type="datetime")
+     */
+    private $dateDebutEvent;
+
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="date_fin", type="datetime")
+     */
+    private $dateFinEvent;
+
+    /**
      * @var string
      * 
      * @ORM\Column(name="description", type="string", length=255)
@@ -52,7 +66,7 @@ class Evenement
     /**
      * @var \DateTime
      * 
-     * @ORM\Column(name="cree_le", type="datetime", nullable=true)
+     * @ORM\Column(name="cree_le", type="datetime")
      */
     private $createAt;
 
@@ -174,6 +188,52 @@ class Evenement
     public function setCreateAt(\DateTime $createAt): self
     {
         $this->createAt = $createAt;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDebutEvent
+     *
+     * @return \DateTime
+     */
+    public function getDateDebutEvent(): ?\DateTime
+    {
+        return $this->dateDebutEvent;
+    }
+
+    /**
+     * Set dateDebutEvent
+     *
+     * @param \DateTime $dateDebutEvent
+     * @return self
+     */
+    public function setDateDebutEvent(\DateTime $dateDebutEvent): self
+    {
+        $this->dateDebutEvent = $dateDebutEvent;
+
+        return $this;
+    }
+
+    /**
+     * Get dateFinEvent
+     *
+     * @return \DateTime
+     */
+    public function getDateFinEvent(): ?\DateTime
+    {
+        return $this->dateFinEvent;
+    }
+
+    /**
+     * Set dateFinEvent
+     *
+     * @param \DateTime $dateFinEvent
+     * @return self
+     */
+    public function setDateFinEvent(\DateTime $dateFinEvent): self
+    {
+        $this->dateFinEvent = $dateFinEvent;
 
         return $this;
     }

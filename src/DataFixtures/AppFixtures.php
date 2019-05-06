@@ -18,11 +18,13 @@ class AppFixtures extends Fixture
         // create a French faker
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 1; $i <= 10; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
             $event = new Evenement();
 
             $event
                 ->setTitre($faker->sentence)
+                ->setDateDebutEvent($faker->dateTimeThisYear('now'))
+                ->setDateFinEvent($faker->dateTimeBetween($event->getDateDebutEvent(), '+2 day'))
                 ->setDescription($faker->sentence)
                 ->setCorps($faker->text);
 
