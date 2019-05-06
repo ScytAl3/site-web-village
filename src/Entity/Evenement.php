@@ -15,7 +15,7 @@ class Evenement
 {
 
     /*-----------------------------------------------------------------------------------
-     *                                              Properties 
+     *                                           Properties 
     ----------------------------------------------------------------------------------- */
     #region
 
@@ -38,13 +38,6 @@ class Evenement
     /**
      * @var string
      * 
-     * @ORM\Column(name="slug", type="string", length=255)
-     */
-    private $slug;
-
-    /**
-     * @var string
-     * 
      * @ORM\Column(name="description", type="string", length=255)
      */
     private $description;
@@ -63,17 +56,22 @@ class Evenement
      */
     private $createAt;
 
-    /**
-     * @var \DateTime
-     * 
-     * @ORM\Column(name="modifie_le", type="datetime", nullable=true)
-     */
-    private $updateAt;
-
     #endregion
 
     /*-----------------------------------------------------------------------------------
-     *                                              Getters - Setters 
+     *                                         Constructeur
+    ----------------------------------------------------------------------------------- */
+
+    /**
+     * constructeur qui initialise la date de creation au Datetime de la creation de l evenement
+     */
+    public function __construct()
+    {
+        $this->createAt = new \DateTime();
+    }
+
+    /*-----------------------------------------------------------------------------------
+     *                                         Getters - Setters 
     ----------------------------------------------------------------------------------- */
 
     #region
@@ -107,29 +105,6 @@ class Evenement
     public function setTitre(string $titre): self
     {
         $this->titre = $titre;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string
-     */
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return self
-     */
-    public function setSlug(string $slug): self
-    {
-        $this->slug = $slug;
 
         return $this;
     }
@@ -183,9 +158,9 @@ class Evenement
     /**
      * Get createAt
      *
-     * @return \DateTimeInterface
+     * @return \DateTime
      */
-    public function getCreateAt(): ?\DateTimeInterface
+    public function getCreateAt(): ?\DateTime
     {
         return $this->createAt;
     }
@@ -193,35 +168,12 @@ class Evenement
     /**
      * Set createAt
      *
-     * @param \DateTimeInterface|null $createAt
+     * @param \DateTime $createAt
      * @return self
      */
-    public function setCreateAt(\DateTimeInterface $createAt): self
+    public function setCreateAt(\DateTime $createAt): self
     {
         $this->createAt = $createAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updateAt
-     *
-     * @return \DateTimeInterface
-     */
-    public function getUpdateAt(): ?\DateTimeInterface
-    {
-        return $this->updateAt;
-    }
-
-    /**
-     * Set updateAt
-     *
-     * @param \DateTimeInterface|null $updateAt
-     * @return self
-     */
-    public function setUpdateAt(?\DateTimeInterface $updateAt): self
-    {
-        $this->updateAt = $updateAt;
 
         return $this;
     }

@@ -23,10 +23,8 @@ class AppFixtures extends Fixture
 
             $event
                 ->setTitre($faker->sentence)
-                ->setSlug('evenement-' . $i)
                 ->setDescription($faker->sentence)
-                ->setCorps($faker->text)
-                ->setCreateAt(new \DateTime());
+                ->setCorps($faker->text);
 
             $manager->persist($event);
         }
