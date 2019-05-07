@@ -5,8 +5,8 @@ namespace App\Form;
 use App\Entity\Evenement;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class EvenementType extends AbstractType
 {
@@ -16,14 +16,11 @@ class EvenementType extends AbstractType
             ->add('titre', TextType::class, [
                 'label' => "Titre de l'événement :"
             ])
-            ->add('description', TextType::class, [
-                ' label ' => "Résumé sommairede l'événement :"
-            ])
-            ->add('corps', TextType::class, [
-                ' label ' => "Informations complètes de l'événement :"
-            ])
-            ->add('createAt')
-            ->add('updateAt');
+            ->add('dateDebutEvent')
+            ->add('dateFinEvent')
+            ->add('description')
+            ->add('corps')
+            ->add('createAt');
     }
 
     public function configureOptions(OptionsResolver $resolver)

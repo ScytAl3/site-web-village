@@ -20,22 +20,29 @@ class EvenementRepository extends ServiceEntityRepository
         parent::__construct($registry, Evenement::class);
     }
 
+    /**
+     * Methode pour recuperer les derniers evenements
+     *
+     * @return array
+     */
     public function findLatest(): array
     {
+        // Appelle de la methode  findCurrentNextQuery() 
         return $this->findCurrentNextQuery()
             ->getQuery()
             ->getResult();
     }
 
     /**
-     * Retourne les evenements en cours et futurs
+     * Methode qui retourne les evenements dont la date de fin est supérieure a la date du jour
      *
      * @return \Doctrine\ORM\QueryBuilder
      */
     private function findCurrentNextQuery(): DoctrineQueryBuilder
     {
         return $this->createQueryBuilder('e')
-            ->where('p.dateFinEvent' >= CURRENT_DATE());
+            ->where('e.dateFinEvent > :today')
+            ->setParameter('today', new \DateTime());
     }
 
     // /**
