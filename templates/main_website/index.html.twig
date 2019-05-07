@@ -35,7 +35,8 @@
                                 </h5>
                                 <hr>
                                 <h2>
-                                    <a href="{{ path('evenement.show', {id: event.idEvent}) }}">{{ event.getTitre() }}</a>
+                                    <a href="{{ path('evenement.show', {id: event.getIdEvent(), slug: event.getSlug() }) }}">{{ event.getTitre() }}</a>
+
                                 </h2>
                                 <p>{{ event.getDescription() }}</p>
                                 <p>

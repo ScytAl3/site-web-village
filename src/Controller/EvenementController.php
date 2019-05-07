@@ -35,7 +35,7 @@ class EvenementController extends AbstractController
     }
 
     /**
-     *@Route("/evenement/{slug}-{idEvent}", name="evenement.show", requirements={"slug": "[a-z0-9\-]"})
+     *@Route("/evenement/{slug}-{id}", name="evenement.show", requirements={"slug": "[a-z0-9\-]*"})
      *
      * @return Response
      */
