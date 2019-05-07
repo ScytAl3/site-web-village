@@ -7,7 +7,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Evenement;
 use Faker;
 
-class AppFixtures extends Fixture
+class EventFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {

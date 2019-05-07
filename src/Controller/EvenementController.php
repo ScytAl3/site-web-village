@@ -30,7 +30,20 @@ class EvenementController extends AbstractController
     {
         $listEvent = $this->evenementRepository->findAll();
         return $this->render('evenement/index.html.twig', [
-            'properties' => $listEvent
+            'lesEvenements' => $listEvent
+        ]);
+    }
+
+    /**
+     *@Route("/evenement/{slug}-{idEvent}", name="evenement.show", requirements={"slug": "[a-z0-9\-]"})
+     *
+     * @return Response
+     */
+    public function show($slug, $id): Response
+    {
+        $event = $this->evenementRepository->find($id);
+        return $this->render('evenement/show.html.twig', [
+            'monEvenement' => $event
         ]);
     }
 }

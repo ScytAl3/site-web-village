@@ -14,20 +14,18 @@
         {% block stylesheets %}
             <!--    Bootstrap CSS   -->
             <link href="{{ asset('build/global.css') }}" rel="stylesheet">
-
         {% endblock %}
     </head>
 
     <body>
-        <div>
-            <header>
-                {{ include('include/navbar.html.twig') }}
-            </header>
-        </div>
 
-        <div class="container">
+        <header>
+            {{ include('include/navbar.html.twig') }}
+        </header>
+
+        <main role="main">
             {% block body %}{% endblock %}
-        </div>
+        </main>
 
         <hr>
         <footer class="d-flex flex-column flex-md-column text-center">
