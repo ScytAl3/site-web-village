@@ -1,0 +1,11 @@
+{{ form_start(form) }}
+<div class="row">
+    <div class="col">{{ form_row(form.titre) }}</div>
+</div>
+<div class="row">
+    <div class="col-md-6">{{ form_row(form.dateDebutEvent) }}</div>
+    <div class="col-md-6">{{ form_row(form.dateFinEvent) }}</div>
+</div>
+{{ form_widget(form) }}
+<button class="btn btn-primary">{{ button | default('Enregistrer') }}</button>
+{{ form_end(form) }}

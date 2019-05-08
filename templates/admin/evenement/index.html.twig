@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminController!
+{% block title %}Gestion des événements
 {% endblock %}
 
 {% block body %}
-    <div>
-        <h1>Page admin des événements✅</h1>
-        <br>
-        {% if properties %}
+    <div class="container mt-4">
 
+        <h1>Gestion des événéménts</h1>
+        <br>
+        {% if lesEvenements %}
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -17,12 +17,12 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for event in properties %}
+                    {% for event in lesEvenements %}
 
                         <tr>
-                            <td>{{ event.getTitre() }}</td>
+                            <td>{{ event.titre() }}</td>
                             <td>
-                                <a class="btn btn-dark" href="">Modifier</a>
+                                <a class="btn btn-dark" href="{{ path('admin.evenement.edit', {id: event.idEvent}) }}">Modifier</a>
                                 <a class="btn btn-dark" href="">Supprimer</a>
                             </td>
                         </tr>
@@ -32,5 +32,8 @@
         {% else %}
             <p>Il n'y a aucun événement à afficher !</p>
         {% endif %}
+        <div class="text-right">
+            <a class="btn btn-primary" href="{{ path('admin.evenement.create') }}">Créer un événement</a>
+        </div>
     </div>
 {% endblock %}

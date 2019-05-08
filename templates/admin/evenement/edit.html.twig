@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Création d'événements
+{% block title %}Modifier un événement
 {% endblock %}
 
 {% block body %}
@@ -11,7 +11,7 @@
     {% endfor %}
 
     <div class="container mt-4">
-        <h1>Création de l'événement</h1>
+        <h1>Modification de l'événement</h1>
         <br>
         {{ include('admin/evenement/_form.html.twig', { form: form, button: 'Editer' }) }}
     </div>

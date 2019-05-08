@@ -19,8 +19,7 @@ class EvenementType extends AbstractType
             ->add('dateDebutEvent')
             ->add('dateFinEvent')
             ->add('description')
-            ->add('corps')
-            ->add('createAt');
+            ->add('corps');
     }
 
     public function configureOptions(OptionsResolver $resolver)
