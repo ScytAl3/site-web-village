@@ -57,7 +57,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/evenement/create", name="admin.evenement.create")
+     * @Route("/admin/evenement", name="admin.evenement.create")
      * @param Request $request
      * @return Response
      */
