@@ -7,6 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\EvenementRepository;
 use Symfony\Component\HttpFoundation\Response;
+use App\Entity\Evenement;
 
 class EvenementController extends AbstractController
 {
@@ -22,7 +23,7 @@ class EvenementController extends AbstractController
     }
 
     /**
-     * @Route("/evenement", name="evenement")
+     * @Route("/evenement", name="evenement.index")
      *
      * @return Response
      */
@@ -36,14 +37,20 @@ class EvenementController extends AbstractController
 
     /**
      *@Route("/evenement/{slug}-{id}", name="evenement.show", requirements={"slug": "[a-z0-9\-]*"})
-     *
+     *@param Evenement $evenement
      * @return Response
      */
-    public function show($slug, $id): Response
+    public function show(Evenement $evenement, string $slug): Response
     {
-        $event = $this->evenementRepository->find($id);
+        $leSlug = $evenement->getSlug();
+        if ($leSlug !== $slug) {
+            return $this->redirectToRoute('evenement.show', [
+                'id' => $evenement->getIdEvent(),
+                'slug' => $leSlug
+            ], 301);
+        }
         return $this->render('evenement/show.html.twig', [
-            'monEvenement' => $event
+            'monEvenement' => $evenement
         ]);
     }
 }

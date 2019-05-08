@@ -14,8 +14,9 @@ class MainWebsiteController extends AbstractController
     public function index(EvenementRepository $evenementRepository)
     {
         $nextEvent  = $evenementRepository->findLatest();
-        return $this->render('main_website/index.html.twig', [
+        return $this->render('main_website/accueil.html.twig', [
             'prochain_evenement' => $nextEvent,
+            'current_menu' => 'accueil'
         ]);
     }
 }

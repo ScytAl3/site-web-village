@@ -12,9 +12,9 @@
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 
         {% block stylesheets %}
-            <!--    Bootstrap CSS   -->
-            <link href="{{ asset('build/global.css') }}" rel="stylesheet">
+            {{ encore_entry_link_tags('app') }}
         {% endblock %}
+
     </head>
 
     <body>
@@ -51,11 +51,10 @@
                 - Tous droits réservés - Walnut Grove</p>
         </footer>
 
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         {% block javascripts %}
-            <script src="{{ asset('build/app.js') }}"></script>
+            {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
     </body>
 
 </html>

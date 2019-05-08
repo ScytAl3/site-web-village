@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">MonJoliVillage</a>
+    <a class="navbar-brand" href="{{ path('accueil') }}">MonJoliVillage</a>
     <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/">Acceuil
+            <li class="nav-item {% if  current_menu is defined and current_menu == 'accueil' %}active{% endif %}">
+                <a class="nav-link" href="{{ path('accueil') }}">Acceuil
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
@@ -14,7 +14,7 @@
                 <a class="nav-link" href="{{ path('historique') }}">Historique</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('evenement') }}">Evenements</a>
+                <a class="nav-link" href="{{ path('evenement.index') }}">Evenements</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('nous_trouver') }}">Nous trouver</a>

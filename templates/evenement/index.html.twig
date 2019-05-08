@@ -9,32 +9,34 @@
         <h1 class="text-center">Agenda de tous les événements</h1>
         <br>
         <hr>
-        <!-- Affichage des evenements a venir -->
-        <div class="row">
-            <br>
+        <!-- Affichage de tous les evenements -->
+        <div class="row flex">
             {% if lesEvenements %}
                 {% for event in lesEvenements %}
-                    <div class="card shadow-sm col-md-6">
-                        <h5 class="text-center">Du
-                            <span>
-                                {{ event.getDateDebutEvent()|localizeddate('long', 'short') }}</span>
-                            au
-                            <span>
-                                {{ event.getDateFinEvent()|localizeddate('long', 'short') }}</span>
-                        </h5>
-                        <hr>
-                        <h2>{{ event.getTitre() }}</h2>
-                        <p>{{ event.getDescription() }}</p>
-                        <p>
-                            <a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
-                        </p>
+                    <div class="col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h6 class="card-title text-center">Du
+                                    <b>
+                                        {{ event.dateDebutEvent|localizeddate('long', 'short') }}</b>
+                                    au
+                                    <b>
+                                        {{ event.dateFinEvent|localizeddate('long', 'short') }}</b>
+                                </h6>
+                                <hr>
+                                <h2>{{ event.titre }}</h2>
+                                <p class="card-text">{{ event.description }}</p>
+                                <p>
+                                    <a class="btn btn-secondary" href="{{ path('evenement.show', {id: event.idEvent, slug: event.slug }) }}" role="button">Voir détail &raquo;</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
+
                 {% endfor %}
             {% else %}
                 <p>Il n'y a aucun événement à afficher !</p>
             {% endif %}
 
         </div>
-    </div>
-    <!-- /container -->
-</div>{% endblock %}
+    </div><!-- /container --></div>{% endblock %}

@@ -26,21 +26,18 @@
                     <div class="col-md-6">
                         <div class="card shadow-sm">
                             <div class="card-body">
-                                <h5 class="card-title text-center">Du
-                                    <span>
-                                        {{ event.getDateDebutEvent()|localizeddate('long', 'short') }}</span>
+                                <h6 class="card-title text-center">Du
+                                    <b>
+                                        {{ event.dateDebutEvent|localizeddate('long', 'short') }}</b>
                                     au
-                                    <span>
-                                        {{ event.getDateFinEvent()|localizeddate('long', 'short') }}</span>
-                                </h5>
+                                    <b>
+                                        {{ event.dateFinEvent|localizeddate('long', 'short') }}</b>
+                                </h6>
                                 <hr>
-                                <h2>
-                                    <a href="{{ path('evenement.show', {id: event.getIdEvent(), slug: event.getSlug() }) }}">{{ event.getTitre() }}</a>
-
-                                </h2>
-                                <p>{{ event.getDescription() }}</p>
+                                <h2>{{ event.titre }}</h2>
+                                <p class="card-text">{{ event.description }}</p>
                                 <p>
-                                    <a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
+                                    <a class="btn btn-secondary" href="{{ path('evenement.show', {id: event.idEvent, slug: event.slug }) }}" role="button">Voir détail &raquo;</a>
                                 </p>
                             </div>
                         </div>
