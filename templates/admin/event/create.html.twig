@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create an event
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <h1>Creating an event</h1>
+        <br>
+        {{ include('admin/event/_form.html.twig', { form: form, button: 'Create' }) }}
+    </div>
+{% endblock %}

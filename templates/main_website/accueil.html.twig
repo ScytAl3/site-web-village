@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MainWebsiteController!
+{% block title %}MainWebsiteController
 {% endblock %}
 
 {% block body %}
@@ -10,19 +10,19 @@
             <h1 class="display-3">Bonjour et bienvenue</h1>
             <p>Cillum cupidatat veniam anim exercitation nulla ad exercitation ut ea reprehenderit deserunt. Ex labore ullamco labore exercitation amet reprehenderit aliqua. Cupidatat eu laborum proident magna labore Lorem dolore. Id magna duis duis duis enim magna irure dolor sint. Aute eiusmod non proident reprehenderit proident culpa aute in eu non ut commodo. Ad consequat id sit voluptate exercitation.</p>
             <p>
-                <a class="btn btn-primary btn-lg" href="{{ path('historique') }}" role=" button">En apprendre plus &raquo;</a>
+                <a class="btn btn-primary btn-lg" href="{{ path('history') }}" role=" button">Learn more &raquo;</a>
             </p>
         </div>
     </div>
 
     <div class="container">
-        <h1 class="text-center">Agenda des événements à venir</h1>
+        <h1 class="text-center">Calendar of upcoming events</h1>
         <br>
         <hr>
         <!-- Affichage des evenements a venir -->
         <div class="row flex">
-            {% if prochain_evenement %}
-                {% for event in prochain_evenement %}
+            {% if nextEvent %}
+                {% for event in nextEvent %}
                     <div class="col-md-6">
                         <div class="card shadow-sm">
                             <div class="card-body">
@@ -37,7 +37,7 @@
                                 <h2>{{ event.titre }}</h2>
                                 <p class="card-text">{{ event.description }}</p>
                                 <p>
-                                    <a class="btn btn-secondary" href="{{ path('evenement.show', {id: event.idEvent, slug: event.slug }) }}" role="button">Voir détail &raquo;</a>
+                                    <a class="btn btn-secondary" href="{{ path('events.show', {id: event.idEvent, slug: event.slug }) }}" role="button">See more &raquo;</a>
                                 </p>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
 
                 {% endfor %}
             {% else %}
-                <p>Il n'y a aucun événement à afficher !</p>
+                <p>There are no events to display !</p>
             {% endif %}
 
         </div>

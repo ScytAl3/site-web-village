@@ -10,7 +10,6 @@
             {% endblock %}
         </title>
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -18,12 +17,17 @@
     </head>
 
     <body>
-
         <header>
             {{ include('include/navbar.html.twig') }}
         </header>
 
         <main role="main">
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success text-center">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
             {% block body %}{% endblock %}
         </main>
 

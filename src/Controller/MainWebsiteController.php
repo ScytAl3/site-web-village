@@ -9,14 +9,44 @@ use App\Repository\EvenementRepository;
 class MainWebsiteController extends AbstractController
 {
     /**
-     * @Route("/", name="accueil")
+     * @Route("/", name="home")
      */
-    public function index(EvenementRepository $evenementRepository)
+    public function home(EvenementRepository $evenementRepository)
     {
         $nextEvent  = $evenementRepository->findLatest();
         return $this->render('main_website/accueil.html.twig', [
-            'prochain_evenement' => $nextEvent,
-            'current_menu' => 'accueil'
+            'nextEvent' => $nextEvent,
+            'current_menu' => 'home'
+        ]);
+    }
+
+    /**
+     * @Route("/history", name="history")
+     */
+    public function history()
+    {
+        return $this->render('history/index.html.twig', [
+            'current_menu' => 'history',
+        ]);
+    }
+
+    /**
+     * @Route("/find/us", name="find_us")
+     */
+    public function findUs()
+    {
+        return $this->render('find_us/index.html.twig', [
+            'current_menu' => 'find_us',
+        ]);
+    }
+
+    /**
+     * @Route("/contact", name="contact")
+     */
+    public function contact()
+    {
+        return $this->render('contact/index.html.twig', [
+            'current_menu' => 'contact',
         ]);
     }
 }
