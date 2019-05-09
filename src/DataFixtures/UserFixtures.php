@@ -23,7 +23,7 @@ class UserFixtures extends Fixture
 
         $user
             ->setUsername('Admin')
-            ->setRoles(['ROLE_ADMIN'])
+            ->setRoles(array('ROLE_ADMIN'))
             ->setPassword($this->pwdEncoder->encodePassword($user, 'azerty'));
 
         $manager->persist($user);
