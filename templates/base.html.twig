@@ -21,15 +21,13 @@
             {{ include('include/navbar.html.twig') }}
         </header>
 
-        <main role="main">
-            {% for message in app.flashes('success') %}
-                <div class="alert alert-success text-center">
-                    {{ message }}
-                </div>
-            {% endfor %}
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success text-center">
+                {{ message }}
+            </div>
+        {% endfor %}
 
-            {% block body %}{% endblock %}
-        </main>
+        {% block body %}{% endblock %}
 
         <hr>
         <footer class="d-flex flex-column flex-md-column text-center">

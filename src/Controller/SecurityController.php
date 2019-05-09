@@ -4,16 +4,25 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Secutity\LoginFormAuthenticator;
+use Symfony\Component\HttpFoundation\Request;
 
 class SecurityController extends AbstractController
 {
     /**
-     * @Route("/security", name="security")
+     * @Route("/login", name="security.login")
+     * @param Request $request
      */
-    public function index()
+    public function login(Request $request)
     {
-        return $this->render('security/index.html.twig', [
-            'controller_name' => 'SecurityController',
+        return $this->render('security/login.html.twig', [
+            'current_menu' => 'security'
         ]);
     }
+
+    /**
+     * @Route("/logout", name="logout")
+     */
+    public function logout()
+    { }
 }
