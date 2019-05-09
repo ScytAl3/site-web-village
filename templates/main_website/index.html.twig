@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainWebsiteController!
+{% endblock %}
+
+{% block body %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Bonjour et bienvenue</h1>
+            <p>Cillum cupidatat veniam anim exercitation nulla ad exercitation ut ea reprehenderit deserunt. Ex labore ullamco labore exercitation amet reprehenderit aliqua. Cupidatat eu laborum proident magna labore Lorem dolore. Id magna duis duis duis enim magna irure dolor sint. Aute eiusmod non proident reprehenderit proident culpa aute in eu non ut commodo. Ad consequat id sit voluptate exercitation.</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="{{ path('historique') }}" role=" button">En apprendre plus &raquo;</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="text-center">Agenda des événements à venir</h1>
+        <br>
+        <hr>
+        <!-- Affichage des evenements a venir -->
+        <div class="row flex">
+            {% if prochain_evenement %}
+                {% for event in prochain_evenement %}
+                    <div class="col-md-6">
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">Du
+                                    <span>
+                                        {{ event.getDateDebutEvent()|localizeddate('long', 'short') }}</span>
+                                    au
+                                    <span>
+                                        {{ event.getDateFinEvent()|localizeddate('long', 'short') }}</span>
+                                </h5>
+                                <hr>
+                                <h2>
+                                    <a href="{{ path('evenement.show', {id: event.getIdEvent(), slug: event.getSlug() }) }}">{{ event.getTitre() }}</a>
+
+                                </h2>
+                                <p>{{ event.getDescription() }}</p>
+                                <p>
+                                    <a class="btn btn-secondary" href="#" role="button">View details &raquo;</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            {% else %}
+                <p>Il n'y a aucun événement à afficher !</p>
+            {% endif %}
+
+        </div>
+    </div>
+    <!-- /container -->
+
+</div>{% endblock %}
