@@ -23,20 +23,20 @@ class EvenementController extends AbstractController
     }
 
     /**
-     * @Route("/evenement", name="evenement.index")
+     * @Route("/events", name="events.index")
      *
      * @return Response
      */
     public function showAllEvent(): Response
     {
         $listEvent = $this->evenementRepository->findAll();
-        return $this->render('evenement/index.html.twig', [
-            'lesEvenements' => $listEvent
+        return $this->render('events/index.html.twig', [
+            'theEvents' => $listEvent
         ]);
     }
 
     /**
-     *@Route("/evenement/{slug}-{id}", name="evenement.show", requirements={"slug": "[a-z0-9\-]*"})
+     *@Route("/events/{slug}-{id}", name="events.show", requirements={"slug": "[a-z0-9\-]*"})
      *@param Evenement $evenement
      * @return Response
      */
@@ -44,13 +44,13 @@ class EvenementController extends AbstractController
     {
         $leSlug = $evenement->getSlug();
         if ($leSlug !== $slug) {
-            return $this->redirectToRoute('evenement.show', [
+            return $this->redirectToRoute('events.show', [
                 'id' => $evenement->getIdEvent(),
                 'slug' => $leSlug
             ], 301);
         }
-        return $this->render('evenement/show.html.twig', [
-            'monEvenement' => $evenement
+        return $this->render('events/show.html.twig', [
+            'myEvent' => $evenement
         ]);
     }
 }

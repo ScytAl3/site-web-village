@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}EventController!
+{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <h1 class="text-center">Calendar of all events</h1>
+        <br>
+        <hr>
+        <!-- Affichage de tous les evenements -->
+        <div class="row">
+            {% if theEvents %}
+                {% for event in theEvents %}
+                    {{ include('include/event.html.twig') }}
+                {% endfor %}
+            {% else %}
+                <p>There are no events to display !</p>
+            {% endif %}
+        </div>
+    </div>
+    <!-- /container -->
+{% endblock %}

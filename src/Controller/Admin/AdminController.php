@@ -24,18 +24,18 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin", name="admin.evenement.index")
+     * @Route("/admin", name="admin.event.index")
      */
     public function index()
     {
         $listEvent = $this->evenementRepository->findAll();
-        return $this->render('admin/evenement/index.html.twig', [
-            'lesEvenements' => $listEvent
+        return $this->render('admin/event/index.html.twig', [
+            'eventList' => $listEvent
         ]);
     }
 
     /**
-     * @Route("/admin/evenement/{id}", name="admin.evenement.edit")
+     * @Route("/admin/event/{id}", name="admin.event.edit", methods="GET|POST")
      * @param Evenement $evenement
      * @param Request $request
      * @return Response
@@ -47,17 +47,17 @@ class AdminController extends AbstractController
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->entityManager->flush();
-            $this->addFlash('success', 'L\'événement à été modifié avec succès');
-            return $this->redirectToRoute('admin.evenement.index');
+            $this->addFlash('success', 'The event has been successfully changed');
+            return $this->redirectToRoute('admin.event.index');
         }
-        return $this->render('admin/evenement/edit.html.twig', [
+        return $this->render('admin/event/edit.html.twig', [
             'monEvenement' => $evenement,
             'form' => $editForm->createView()
         ]);
     }
 
     /**
-     * @Route("/admin/evenement", name="admin.evenement.create")
+     * @Route("/admin/event", name="admin.event.create")
      * @param Request $request
      * @return Response
      */
@@ -70,12 +70,31 @@ class AdminController extends AbstractController
         if ($createForm->isSubmitted() && $createForm->isValid()) {
             $this->entityManager->persist($evenement);
             $this->entityManager->flush();
-            $this->addFlash('success', 'L\'événement à été créé avec succès');
-            return $this->redirectToRoute('admin.evenement.index');
+            $this->addFlash('success', 'The event was successfully created');
+            return $this->redirectToRoute('admin.event.index');
         }
-        return $this->render('admin/evenement/create.html.twig', [
+        return $this->render('admin/event/create.html.twig', [
             'createEvent' => $evenement,
             'form' => $createForm->createView()
         ]);
+    }
+
+    /**
+     * @Route("/admin/event/{id}", name="admin.event.delete", methods="DELETE")
+     * @param Evenement $evenement
+     * @param Request $request
+     * @return Response
+     */
+    public function delete(Evenement $evenement, Request $request): Response
+    {
+        // On verifie si  le token associe au bouton Delete est valide
+        if ($this->isCsrfTokenValid('delete' . $evenement->getIdEvent(), $request->get('_token'))) {
+            // On prepare la  suppression de l entite evenement selectionne
+            $this->entityManager->remove($evenement);
+            // On execute la requete de suppression - transaction
+            $this->entityManager->flush();
+            $this->addFlash('success', 'The event has been successfully deleted');            
+        };
+        return $this->redirectToRoute('admin.event.index');
     }
 }
