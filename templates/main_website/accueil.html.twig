@@ -20,29 +20,10 @@
         <br>
         <hr>
         <!-- Affichage des evenements a venir -->
-        <div class="row flex">
+        <div class="row">
             {% if nextEvent %}
                 {% for event in nextEvent %}
-                    <div class="col-md-6">
-                        <div class="card shadow-sm">
-                            <div class="card-body">
-                                <h6 class="card-title text-center">from
-                                    <b>
-                                        {{ event.dateDebutEvent|localizeddate('long', 'short') }}</b>
-                                    to
-                                    <b>
-                                        {{ event.dateFinEvent|localizeddate('long', 'short') }}</b>
-                                </h6>
-                                <hr>
-                                <h2>{{ event.titre }}</h2>
-                                <p class="card-text">{{ event.description }}</p>
-                                <p>
-                                    <a class="btn btn-secondary" href="{{ path('events.show', {id: event.idEvent, slug: event.slug }) }}" role="button">See more &raquo;</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
+                    {{ include('include/event.html.twig') }}
                 {% endfor %}
             {% else %}
                 <p>There are no events to display !</p>
