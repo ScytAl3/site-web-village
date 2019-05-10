@@ -11,7 +11,7 @@
         </title>
         <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('app') }}
         {% endblock %}
 
     </head>
@@ -22,9 +22,9 @@
         </header>
 
         {% for message in app.flashes('success') %}
-            <div class="alert alert-success text-center">
-                {{ message }}
-            </div>
+        <div class="alert alert-success text-center">
+            {{ message }}
+        </div>
         {% endfor %}
 
         {% block body %}{% endblock %}
@@ -33,19 +33,16 @@
         <footer class="d-flex flex-column flex-md-column text-center">
             <ul class="list-inline">
                 <li class="list-inline-item">
-                    <a href="#">Venir ici</a>
+                    <a href="{{ path('find_us') }}">Visit us</a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#">Informations d'accès</a>
+                    <a href="#">Terms &amp; Condition</a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#">Termes &amp; Condition</a>
+                    <a href="#">privacy policy</a>
                 </li>
                 <li class="list-inline-item">
-                    <a href="#">Politique de confidentialité</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">Nous contacter !</a>
+                    <a href="{{ path('contact') }}">Contact us !</a>
                 </li>
             </ul>
             <p><br>&copy;
@@ -54,7 +51,7 @@
         </footer>
 
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('app') }}
         {% endblock %}
 
     </body>

@@ -1,42 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Gestion des événements
+{% block title %}Event Management
 {% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
+<div class="container mt-4">
 
-        <h1>Gestion des événéménts</h1>
-        <br>
-        {% if eventList %}
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Name of the event</th>
-                        <th>Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for event in eventList %}
-                        <tr>
-                            <td>{{ event.titre() }}</td>
-                            <td class="row">
-                                <a class="btn btn-dark" href="{{ path('admin.event.edit', {id: event.idEvent}) }}">Edit</a>
-                                <form method="post" action="{{ path('admin.event.delete', {id: event.idEvent}) }}" onsubmit=" return confirm('are you really sure')">
-                                    <input name="_method" type="hidden" value="DELETE">
-                                    <input name="_token" type="hidden" value="{{ csrf_token('delete' ~ event.idEvent) }}">
-                                    <button class="btn btn-danger  ml-1">Delete</button>
-                                </form>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <p>There are no events to display !</p>
-        {% endif %}
-        <div class="text-right">
-            <a class="btn btn-primary" href="{{ path('admin.event.create') }}">Create an event</a>
-        </div>
+    <h1>Event Management</h1>
+    <br>
+    {% if eventList %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name of the event</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for event in eventList %}
+            <tr>
+                <td>{{ event.titre() }}</td>
+                <td class="row">
+                    <a class="btn btn-dark" href="{{ path('admin.event.edit', {id: event.idEvent}) }}">Edit</a>
+                    <form method="post" action="{{ path('admin.event.delete', {id: event.idEvent}) }}"
+                        onsubmit=" return confirm('are you really sure')">
+                        <input name="_method" type="hidden" value="DELETE">
+                        <input name="_token" type="hidden" value="{{ csrf_token('delete' ~ event.idEvent) }}">
+                        <button class="btn btn-danger  ml-1">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>There are no events to display !</p>
+    {% endif %}
+    <div class="text-right">
+        <a class="btn btn-primary" href="{{ path('admin.event.create') }}">Create an event</a>
     </div>
+</div>
 {% endblock %}
