@@ -4,16 +4,16 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Repository\EvenementRepository;
+use App\Repository\EventRepository;
 
 class MainWebsiteController extends AbstractController
 {
     /**
      * @Route("/", name="home")
      */
-    public function home(EvenementRepository $evenementRepository)
+    public function home(EventRepository $EventRepository)
     {
-        $nextEvent  = $evenementRepository->findLatest();
+        $nextEvent  = $EventRepository->findLatest();
         return $this->render('main_website/accueil.html.twig', [
             'nextEvent' => $nextEvent,
             'current_menu' => 'home'

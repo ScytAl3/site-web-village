@@ -5,9 +5,9 @@ namespace App\Controller\Admin;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Evenement;
-use App\Repository\EvenementRepository;
-use App\Form\EvenementType;
+use App\Entity\Event;
+use App\Repository\EventRepository;
+use App\Form\EventType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -15,11 +15,11 @@ class AdminController extends AbstractController
 {
 
     private $entityManager;
-    private $evenementRepository;
+    private $EventRepository;
 
-    public function __construct(ObjectManager $entityManager, EvenementRepository $evenementRepository)
+    public function __construct(ObjectManager $entityManager, EventRepository $EventRepository)
     {
-        $this->evenementRepository = $evenementRepository;
+        $this->EventRepository = $EventRepository;
         $this->entityManager = $entityManager;
     }
 
@@ -28,7 +28,7 @@ class AdminController extends AbstractController
      */
     public function index()
     {
-        $listEvent = $this->evenementRepository->findAll();
+        $listEvent = $this->EventRepository->findAll();
         return $this->render('admin/event/index.html.twig', [
             'eventList' => $listEvent
         ]);
@@ -36,13 +36,13 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/event/{id}", name="admin.event.edit", methods="GET|POST")
-     * @param Evenement $evenement
+     * @param Event $Event
      * @param Request $request
      * @return Response
      */
-    public function edit(Evenement $evenement, Request $request): Response
+    public function edit(Event $Event, Request $request): Response
     {
-        $editForm = $this->createForm(EvenementType::class, $evenement);
+        $editForm = $this->createForm(EventType::class, $Event);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -51,7 +51,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/edit.html.twig', [
-            'monEvenement' => $evenement,
+            'monEvent' => $Event,
             'form' => $editForm->createView()
         ]);
     }
@@ -63,37 +63,37 @@ class AdminController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $evenement = new Evenement();
-        $createForm = $this->createForm(EvenementType::class, $evenement);
+        $Event = new Event();
+        $createForm = $this->createForm(EventType::class, $Event);
         $createForm->handleRequest($request);
 
         if ($createForm->isSubmitted() && $createForm->isValid()) {
-            $this->entityManager->persist($evenement);
+            $this->entityManager->persist($Event);
             $this->entityManager->flush();
             $this->addFlash('success', 'The event was successfully created');
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/create.html.twig', [
-            'createEvent' => $evenement,
+            'createEvent' => $Event,
             'form' => $createForm->createView()
         ]);
     }
 
     /**
      * @Route("/admin/event/{id}", name="admin.event.delete", methods="DELETE")
-     * @param Evenement $evenement
+     * @param Event $Event
      * @param Request $request
      * @return Response
      */
-    public function delete(Evenement $evenement, Request $request): Response
+    public function delete(Event $Event, Request $request): Response
     {
         // On verifie si  le token associe au bouton Delete est valide
-        if ($this->isCsrfTokenValid('delete' . $evenement->getIdEvent(), $request->get('_token'))) {
-            // On prepare la  suppression de l entite evenement selectionne
-            $this->entityManager->remove($evenement);
+        if ($this->isCsrfTokenValid('delete' . $Event->getIdEvent(), $request->get('_token'))) {
+            // On prepare la  suppression de l entite Event selectionne
+            $this->entityManager->remove($Event);
             // On execute la requete de suppression - transaction
             $this->entityManager->flush();
-            $this->addFlash('success', 'The event has been successfully deleted');            
+            $this->addFlash('success', 'The event has been successfully deleted');
         };
         return $this->redirectToRoute('admin.event.index');
     }

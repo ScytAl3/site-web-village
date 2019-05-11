@@ -2,31 +2,28 @@
 
 namespace App\Form;
 
-use App\Entity\Evenement;
+use App\Entity\Event;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-class EvenementType extends AbstractType
+class EventType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titre', TextType::class, [
-                'label' => "Titre de l'événement :"
-            ])
-            ->add('dateDebutEvent')
-            ->add('dateFinEvent')
+            ->add('title')
+            ->add('startDateEvent')
+            ->add('endDateEvent')
             ->add('description')
-            ->add('corps');
+            ->add('body');
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Evenement::class,
-            'translations_domaine' => 'evenementForm',
+            'data_class' => Event::class,
+            'translations_domaine' => 'EventForm',
         ]);
     }
 }

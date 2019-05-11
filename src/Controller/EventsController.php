@@ -5,19 +5,26 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Repository\EvenementRepository;
+use App\Repository\EventRepository;
 use Symfony\Component\HttpFoundation\Response;
-use App\Entity\Evenement;
+use App\Entity\Event;
 
-class EvenementController extends AbstractController
+class EventsController extends AbstractController
 {
-    private $entityManager;
-    private $evenementRepository;
 
-    public function __construct(ObjectManager $entityManager, EvenementRepository $evenementRepository)
+    private $entityManager;
+    private $EventRepository;
+
+    /**
+     * Constructeur
+     *
+     * @param ObjectManager $entityManager
+     * @param EventRepository $EventRepository
+     */
+    public function __construct(ObjectManager $entityManager, EventRepository $EventRepository)
     {
-        // Initialisation du Repository Evenement
-        $this->evenementRepository = $evenementRepository;
+        // Initialisation du Repository Event
+        $this->EventRepository = $EventRepository;
         // Initialisation de l entityManager
         $this->entityManager = $entityManager;
     }
@@ -29,7 +36,7 @@ class EvenementController extends AbstractController
      */
     public function showAllEvent(): Response
     {
-        $listEvent = $this->evenementRepository->findAll();
+        $listEvent = $this->EventRepository->findAll();
         return $this->render('events/index.html.twig', [
             'theEvents' => $listEvent
         ]);
@@ -37,20 +44,20 @@ class EvenementController extends AbstractController
 
     /**
      *@Route("/events/{slug}-{id}", name="events.show", requirements={"slug": "[a-z0-9\-]*"})
-     *@param Evenement $evenement
+     *@param Event $Event
      * @return Response
      */
-    public function show(Evenement $evenement, string $slug): Response
+    public function show(Event $Event, string $slug): Response
     {
-        $leSlug = $evenement->getSlug();
+        $leSlug = $Event->getSlug();
         if ($leSlug !== $slug) {
             return $this->redirectToRoute('events.show', [
-                'id' => $evenement->getIdEvent(),
+                'id' => $Event->getIdEvent(),
                 'slug' => $leSlug
             ], 301);
         }
         return $this->render('events/show.html.twig', [
-            'myEvent' => $evenement
+            'myEvent' => $Event
         ]);
     }
 }

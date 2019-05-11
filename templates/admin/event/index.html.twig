@@ -19,7 +19,7 @@
         <tbody>
             {% for event in eventList %}
             <tr>
-                <td>{{ event.titre() }}</td>
+                <td>{{ event.title() }}</td>
                 <td class="row">
                     <a class="btn btn-dark" href="{{ path('admin.event.edit', {id: event.idEvent}) }}">Edit</a>
                     <form method="post" action="{{ path('admin.event.delete', {id: event.idEvent}) }}"

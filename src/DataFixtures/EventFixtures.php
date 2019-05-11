@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\Evenement;
+use App\Entity\Event;
 use Faker;
 
 class EventFixtures extends Fixture
@@ -16,17 +16,17 @@ class EventFixtures extends Fixture
 
         // use the factory to create a Faker\Generator instance
         // create a French faker
-        $faker = Faker\Factory::create('fr_FR');
+        $faker = Faker\Factory::create('en_Us');
 
         for ($i = 1; $i <= 15; $i++) {
-            $event = new Evenement();
+            $event = new Event();
 
             $event
-                ->setTitre($faker->sentence)
-                ->setDateDebutEvent($faker->dateTimeThisYear('now'))
-                ->setDateFinEvent($faker->dateTimeBetween($event->getDateDebutEvent(), '+2 day'))
-                ->setDescription($faker->sentence)
-                ->setCorps($faker->text);
+                ->setTitle($faker->title)
+                ->setStartDateEvent($faker->dateTimeThisMonth('now'))
+                ->setEndDateEvent($faker->dateTimeBetween($event->getStartDateEvent(), '+5 day'))
+                ->setDescription($faker->text(100))
+                ->setBody($faker->text(600));
 
             $manager->persist($event);
         }

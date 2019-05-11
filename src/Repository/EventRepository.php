@@ -2,51 +2,51 @@
 
 namespace App\Repository;
 
-use App\Entity\Evenement;
+use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\ORM\QueryBuilder as DoctrineQueryBuilder;
 
 /**
- * @method Evenement|null find($id, $lockMode = null, $lockVersion = null)
- * @method Evenement|null findOneBy(array $criteria, array $orderBy = null)
- * @method Evenement[]    findAll()
- * @method Evenement[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Event|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Event|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Event[]    findAll()
+ * @method Event[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class EvenementRepository extends ServiceEntityRepository
+class EventRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Evenement::class);
+        parent::__construct($registry, Event::class);
     }
 
     /**
-     * Methode pour recuperer les derniers evenements
+     * Methode pour recuperer les derniers Events
      *
      * @return array
      */
     public function findLatest(): array
     {
-        // Appelle de la methode  findCurrentNextQuery() 
+        // Appelle de la methode findCurrentNextQuery() 
         return $this->findCurrentNextQuery()
             ->getQuery()
             ->getResult();
     }
 
     /**
-     * Methode qui retourne les evenements dont la date de fin est supérieure a la date du jour
+     * Methode qui retourne les Events dont la date de fin est supérieure a la date du jour
      *
      * @return \Doctrine\ORM\QueryBuilder
      */
     private function findCurrentNextQuery(): DoctrineQueryBuilder
     {
         return $this->createQueryBuilder('e')
-            ->where('e.dateFinEvent > :today')
+            ->where('e.endDateEvent > :today')
             ->setParameter('today', new \DateTime());
     }
 
     // /**
-    //  * @return Evenement[] Returns an array of Evenement objects
+    //  * @return Event[] Returns an array of Event objects
     //  */
     /*
     public function findByExampleField($value)
@@ -63,7 +63,7 @@ class EvenementRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Evenement
+    public function findOneBySomeField($value): ?Event
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.exampleField = :val')
