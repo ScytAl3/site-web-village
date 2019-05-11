@@ -15,16 +15,15 @@ class EventFixtures extends Fixture
         // $manager->persist($product);
 
         // use the factory to create a Faker\Generator instance
-        // create a French faker
-        $faker = Faker\Factory::create('en_Us');
+        $faker = Faker\Factory::create();
 
         for ($i = 1; $i <= 15; $i++) {
             $event = new Event();
 
             $event
-                ->setTitle($faker->title)
+                ->setTitle($faker->sentence)
                 ->setStartDateEvent($faker->dateTimeThisMonth('now'))
-                ->setEndDateEvent($faker->dateTimeBetween($event->getStartDateEvent(), '+5 day'))
+                ->setEndDateEvent($faker->dateTimeBetween($event->getStartDateEvent(), '+5 days'))
                 ->setDescription($faker->text(100))
                 ->setBody($faker->text(600));
 
