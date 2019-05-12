@@ -1,11 +1,58 @@
 {{ form_start(form) }}
+<!-- Grid row title -->
 <div class="row">
+
+    <!-- Grid column -->
     <div class="col">{{ form_row(form.title) }}</div>
+    <!-- Grid column -->
+
 </div>
+<!-- Grid row -->
+
+<!-- Grid row start and end date -->
 <div class="row">
+
+    <!-- Grid column -->
     <div class="col-md-6">{{ form_row(form.startDateEvent) }}</div>
+    <!-- Grid column -->
+
+    <!-- Grid column -->
     <div class="col-md-6">{{ form_row(form.endDateEvent) }}</div>
+    <!-- Grid column -->
+
 </div>
-{{ form_widget(form) }}
+<!-- Grid row -->
+
+<!-- Grid row description -->
+<div class="row">
+
+    <!-- Grid column -->
+    <div class="col">{{ form_row(form.description) }}</div>
+    <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+<!-- Grid row body -->
+<div class="row">
+
+    <!-- Grid column -->
+    <div class="col">{{ form_row(form.body) }}</div>
+    <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+<!-- Grid row imageFile -->
+<div class="row">
+
+    <!-- Grid column -->
+    <div class="col">{{ form_row(form.imageFile) }}</div>
+    <!-- Grid column -->
+
+</div>
+<!-- Grid row -->
+
+{{ form_rest(form) }}
 <button class="btn btn-primary">{{ button | default('Save') }}</button>
 {{ form_end(form) }}

@@ -39,11 +39,6 @@ class User implements UserInterface, \Serializable
      */
     private $password;
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
     #endregion
 
     /*-----------------------------------------------------------------------------------
@@ -51,6 +46,16 @@ class User implements UserInterface, \Serializable
     ----------------------------------------------------------------------------------- */
 
     #region
+
+    /**
+     * @Get Id
+     * 
+     * @return integer
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     /**
      * A visual identifier that represents this user.

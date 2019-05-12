@@ -13,21 +13,21 @@ class Contact
     #region
 
     /**
-     * @var string|null
+     * @var string
      * @Assert\NotBlank
      * @Assert\Length(min=2, max=100)
      */
     private $firstName;
 
     /**
-     * @var string|null
+     * @var string
      * @Assert\NotBlank
      * @Assert\Length(min=2, max=100)
      */
     private $lastName;
 
     /**
-     * @var string|null
+     * @var string
      * @Assert\NotBlank
      * @Assert\Regex(
      *      pattern = "/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",
@@ -38,14 +38,14 @@ class Contact
     private $phone;
 
     /**
-     * @var string|null
+     * @var string
      * @Assert\NotBlank
      * @Assert\Email()
      */
     private $email;
 
     /**
-     * @var string|null
+     * @var string
      * @Assert\NotBlank
      * @Assert\Length(min=10)
      */
@@ -62,7 +62,7 @@ class Contact
     /**
      * Get the value of firstName
      *
-     * @return  string|null
+     * @return  string
      */
     public function getFirstName(): ?string
     {
@@ -72,7 +72,7 @@ class Contact
     /**
      * Set the value of firstName
      *
-     * @param  string|null  $firstName
+     * @param  string $firstName
      *
      * @return  self
      */
@@ -86,7 +86,7 @@ class Contact
     /**
      * Get the value of lastName
      *
-     * @return  string|null
+     * @return  string
      */
     public function getLastName(): ?string
     {
@@ -96,7 +96,7 @@ class Contact
     /**
      * Set the value of lastName
      *
-     * @param  string|null  $lastName
+     * @param  string $lastName
      *
      * @return  self
      */
@@ -110,7 +110,7 @@ class Contact
     /**
      * Get pattern = "/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",
      *
-     * @return  string|null
+     * @return  string
      */
     public function getPhone(): ?string
     {
@@ -120,7 +120,7 @@ class Contact
     /**
      * Set pattern = "/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",
      *
-     * @param  string|null  $phone  pattern = "/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",
+     * @param  string $phone  pattern = "/^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$/",
      *
      * @return  self
      */
@@ -134,7 +134,7 @@ class Contact
     /**
      * Get the value of email
      *
-     * @return  string|null
+     * @return  string
      */
     public function getEmail(): ?string
     {
@@ -144,7 +144,7 @@ class Contact
     /**
      * Set the value of email
      *
-     * @param  string|null  $email
+     * @param  string $email
      *
      * @return  self
      */
@@ -158,7 +158,7 @@ class Contact
     /**
      * Get the value of message
      *
-     * @return  string|null
+     * @return  string
      */
     public function getMessage(): ?string
     {
@@ -168,7 +168,7 @@ class Contact
     /**
      * Set the value of message
      *
-     * @param  string|null  $message
+     * @param  string $message
      *
      * @return  self
      */

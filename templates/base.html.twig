@@ -17,10 +17,12 @@
     </head>
 
     <body>
+
         <header>
             {{ include('include/navbar.html.twig') }}
         </header>
 
+        <!--    DIV POUR AFFICHER DIFFERENTS MESSAGE    -->
         {% for message in app.flashes('success') %}
         <div class="alert alert-success text-center">
             {{ message }}
@@ -28,26 +30,9 @@
         {% endfor %}
 
         {% block body %}{% endblock %}
-
         <hr>
         <footer class="d-flex flex-column flex-md-column text-center">
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="{{ path('find_us') }}">Visit us</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">Terms &amp; Condition</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="#">privacy policy</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="{{ path('contact') }}">Contact us !</a>
-                </li>
-            </ul>
-            <p><br>&copy;
-                {{ 'now'|date('Y') }}
-                - Tous droits réservés - Mon Joli Village</p>
+            {{ include('include/footer.html.twig') }}
         </footer>
 
         {% block javascripts %}

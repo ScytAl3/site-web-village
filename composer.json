@@ -7,6 +7,7 @@
         "ext-iconv": "*",
         "cocur/slugify": "^3.2",
         "fzaninotto/faker": "^1.8",
+        "liip/imagine-bundle": "^2.1",
         "sensio/framework-extra-bundle": "^5.3",
         "symfony/asset": "4.2.*",
         "symfony/console": "4.2.*",
@@ -27,7 +28,8 @@
         "symfony/web-link": "4.2.*",
         "symfony/webpack-encore-bundle": "^1.5",
         "symfony/yaml": "4.2.*",
-        "twig/extensions": "^1.5"
+        "twig/extensions": "^1.5",
+        "vich/uploader-bundle": "^1.9"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.1",
@@ -78,7 +80,7 @@
     },
     "extra": {
         "symfony": {
-            "allow-contrib": false,
+            "allow-contrib": true,
             "require": "4.2.*"
         }
     }
