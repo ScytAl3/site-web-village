@@ -61,7 +61,7 @@ class MainWebsiteController extends AbstractController
         if ($contactForm->isSubmitted() && $contactForm->isValid()) {
             $contactNotification->notify($contact);
             $this->addFlash('success', 'Your message has been sent successfully');
-            $this->redirectToRoute('contact');
+            return $this->redirectToRoute('contact');
         }
 
         return $this->render('contact/index.html.twig', [
