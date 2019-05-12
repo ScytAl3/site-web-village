@@ -10,6 +10,12 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface, \Serializable
 {
+
+    /*-----------------------------------------------------------------------------------
+     *                                           Properties 
+    ----------------------------------------------------------------------------------- */
+    #region
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -37,6 +43,14 @@ class User implements UserInterface, \Serializable
     {
         return $this->id;
     }
+
+    #endregion
+
+    /*-----------------------------------------------------------------------------------
+     *                                         Getters - Setters 
+    ----------------------------------------------------------------------------------- */
+
+    #region
 
     /**
      * A visual identifier that represents this user.
@@ -89,6 +103,14 @@ class User implements UserInterface, \Serializable
         return $this;
     }
 
+    #endregion
+
+    /*-----------------------------------------------------------------------------------
+     *                                         Methods
+    ----------------------------------------------------------------------------------- */
+
+    #region
+
     /**
      * @see UserInterface
      */
@@ -107,7 +129,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Undocumented function
+     * Serialize selected User's data
      *
      * @return string
      */
@@ -120,12 +142,21 @@ class User implements UserInterface, \Serializable
         ]);
     }
 
+    /**
+     * Unserialize
+     *
+     * @param string $serialized
+     * @return void
+     */
     public function unserialize($serialized)
     {
-        list (
+        list(
             $this->id,
             $this->username,
             $this->password
         ) = unserialize($serialized, ['allowed_classes' => false]);
     }
+
+    #endregion
+
 }

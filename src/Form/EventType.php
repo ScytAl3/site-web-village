@@ -16,14 +16,15 @@ class EventType extends AbstractType
             ->add('startDateEvent')
             ->add('endDateEvent')
             ->add('description')
-            ->add('body');
+            ->add('body')
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => Event::class,
-            'translations_domaine' => 'EventForm',
+            'translations_domaine' => 'eventForm',
         ]);
     }
 }

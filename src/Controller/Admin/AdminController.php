@@ -63,18 +63,18 @@ class AdminController extends AbstractController
      */
     public function create(Request $request): Response
     {
-        $Event = new Event();
+        $event = new Event();
         $createForm = $this->createForm(EventType::class, $Event);
         $createForm->handleRequest($request);
 
         if ($createForm->isSubmitted() && $createForm->isValid()) {
-            $this->entityManager->persist($Event);
+            $this->entityManager->persist($event);
             $this->entityManager->flush();
             $this->addFlash('success', 'The event was successfully created');
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/create.html.twig', [
-            'createEvent' => $Event,
+            'createEvent' => $event,
             'form' => $createForm->createView()
         ]);
     }
