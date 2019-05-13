@@ -2,7 +2,8 @@
     <div class="card shadow-sm">
         <!--    AJOUT IMAGE ASSOCIEE A L EVENEMENT  -->
         {% if event.imageName %}
-        <img src="{{ vich_uploader_asset(event, 'imageFile') }}" alt="image de l'événement" class="card-img-top" style="width: 100%; height:auto">
+        <img src="{{ vich_uploader_asset(event, 'imageFile') | imagine_filter('thumb') }}" alt="image de l'événement"
+            class="card-img-top" style="width: 100%; height:auto" />
         {% endif %}
         <div class="card-body">
             <h6 class="card-title text-center">from

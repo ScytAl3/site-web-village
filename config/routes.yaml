@@ -3,5 +3,5 @@
 #    controller: App\Controller\DefaultController::index
 
 # Users log out
-#logout:
-#    path: /logout
+logout:
+    path: /logout

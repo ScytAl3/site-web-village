@@ -18,8 +18,8 @@
         <!--    div pour afficher des images    -->
         <div class="col-md-7">
             {% if myEvent.imageName %}
-            <img src="{{ vich_uploader_asset(myEvent, 'imageFile') }}" alt="image de l'événement" class="card-img-top"
-                style="width: 100%; height:auto">
+            <img src="{{ vich_uploader_asset(myEvent, 'imageFile') | imagine_filter('thumb') }}"
+                alt="image de l'événement" class="card-img-top" style="width: 100%; height:auto" />
             {% endif %}
         </div>
         <!--    div pour le texte   -->

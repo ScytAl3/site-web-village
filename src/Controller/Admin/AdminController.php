@@ -36,13 +36,13 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin/event/{id}", name="admin.event.edit", methods="GET|POST")
-     * @param Event $Event
+     * @param Event $event
      * @param Request $request
      * @return Response
      */
-    public function edit(Event $Event, Request $request): Response
+    public function edit(Event $event, Request $request): Response
     {
-        $editForm = $this->createForm(EventType::class, $Event);
+        $editForm = $this->createForm(EventType::class, $event);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -51,7 +51,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/edit.html.twig', [
-            'monEvent' => $Event,
+            'monEvent' => $event,
             'form' => $editForm->createView()
         ]);
     }

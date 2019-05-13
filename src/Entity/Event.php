@@ -4,8 +4,8 @@ namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
@@ -13,7 +13,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  * 
  * @ORM\Table(name="event")
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
- * @ORM\HasLifecycleCallbacks
+ * @ORM\HasLifecycleCallbacks()
  * 
  * @Vich\Uploadable
  */
@@ -35,18 +35,17 @@ class Event
     private $idEvent;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     *
-     * @var string
+     * @var string|null
+     * 
+     * @ORM\Column(type="string", length=255, nullable=true)  
      */
     private $imageName;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
+     * @var File|null
      * 
-     * @Vich\UploadableField(mapping="event_image", fileNameProperty="imageName")
-     * 
-     * @var File
+     * @Vich\UploadableField(mapping="event_image", fileNameProperty="imageName") 
      */
     private $imageFile;
 
@@ -93,9 +92,9 @@ class Event
     private $create_at;
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      * 
-     * @ORM\Column(name="update_at", type="datetime", nullable=true)
+     * @ORM\Column(name="update_at", type="datetime")
      */
     private $updated_at;
 
@@ -111,6 +110,7 @@ class Event
     public function __construct()
     {
         $this->create_at = new \DateTime('now');
+        $this->update_at = new \DateTime('now');
     }
 
     /*-----------------------------------------------------------------------------------
@@ -159,7 +159,7 @@ class Event
      *
      * @return  File|null
      */
-    public function getImageFile()
+    public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
@@ -168,16 +168,15 @@ class Event
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @param  File|null  $imageFile  NOTE: This is not a mapped field of entity metadata, just a simple property.
-     *
-     * @return  self
+     * 
+     * @return Event
      */
-    public function setImageFile(File $imageFile): self
+    public function setImageFile(?File $imageFile = null): Event
     {
         $this->imageFile = $imageFile;
         if ($this->imageFile instanceof  UploadedFile) {
             $this->update_at = new \DateTime('now');
         }
-
         return $this;
     }
 
@@ -201,7 +200,6 @@ class Event
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
         return $this;
     }
 
@@ -234,7 +232,6 @@ class Event
     public function setStartDateEvent(\DateTimeInterface $startDateEvent): self
     {
         $this->startDateEvent = $startDateEvent;
-
         return $this;
     }
 
@@ -257,7 +254,6 @@ class Event
     public function setEndDateEvent(\DateTimeInterface $endDateEvent): self
     {
         $this->endDateEvent = $endDateEvent;
-
         return $this;
     }
 
@@ -280,7 +276,6 @@ class Event
     public function setDescription(string $description): self
     {
         $this->description = $description;
-
         return $this;
     }
 
@@ -303,30 +298,6 @@ class Event
     public function setBody(string $body): self
     {
         $this->body = $body;
-
-        return $this;
-    }
-
-    /**
-     * Get  create_at
-     *
-     * @return \DateTimeInterface
-     */
-    public function getCreateAt(): ?\DateTimeInterface
-    {
-        return $this->create_at;
-    }
-
-    /**
-     * Set create_at
-     *
-     * @param \DateTimeInterface $create_at
-     * @return self
-     */
-    public function setCreateAt(\DateTimeInterface $create_at): self
-    {
-        $this->create_at = $create_at;
-
         return $this;
     }
 
@@ -338,19 +309,6 @@ class Event
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updated_at;
-    }
-
-    /**
-     * Set updated_at
-     *
-     * @param \DateTimeInterface $updated_at
-     * @return self
-     */
-    public function setUpdatedAt(\DateTimeInterface $updated_at): self
-    {
-        $this->updated_at = $updated_at;
-
-        return $this;
     }
 
     #endregion
