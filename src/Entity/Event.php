@@ -37,7 +37,7 @@ class Event
     /**
      * @var string|null
      * 
-     * @ORM\Column(type="string", length=255,)  
+     * @ORM\Column(type="string", length=255, nullable=true)  
      */
     private $imageName;
 
@@ -94,7 +94,7 @@ class Event
     /**
      * @var \DateTime|null
      * 
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updated_at;
 
