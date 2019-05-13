@@ -37,7 +37,7 @@ class Event
     /**
      * @var string|null
      * 
-     * @ORM\Column(type="string", length=255, nullable=true)  
+     * @ORM\Column(type="string", length=255,)  
      */
     private $imageName;
 
@@ -87,14 +87,14 @@ class Event
     /**
      *  @var \DateTime
      * 
-     * @ORM\Column(name="create_at", type="datetime")
+     * @ORM\Column(name="created_at", type="datetime")
      */
-    private $create_at;
+    private $created_at;
 
     /**
      * @var \DateTime|null
      * 
-     * @ORM\Column(name="update_at", type="datetime")
+     * @ORM\Column(name="updated_at", type="datetime")
      */
     private $updated_at;
 
@@ -109,8 +109,7 @@ class Event
      */
     public function __construct()
     {
-        $this->create_at = new \DateTime('now');
-        $this->update_at = new \DateTime('now');
+        $this->created_at = new \DateTime('now');
     }
 
     /*-----------------------------------------------------------------------------------
@@ -175,7 +174,7 @@ class Event
     {
         $this->imageFile = $imageFile;
         if ($this->imageFile instanceof  UploadedFile) {
-            $this->update_at = new \DateTime('now');
+            $this->updated_at = new \DateTime('now');
         }
         return $this;
     }
@@ -302,13 +301,47 @@ class Event
     }
 
     /**
-     * Get  update_at
+     * Get  created_at
+     *
+     * @return \DateTimeInterface|
+     */
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->created_at;
+    }
+    /**
+     * Set createa_at
+     *
+     * @param \DateTimeInterface $created_at
+     * @return self
+     */
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->created_at = $createdAt;
+        return $this;
+    }
+
+    /**
+     * Get  updated_at
      *
      * @return \DateTimeInterface
      */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updated_at;
+    }
+
+    /**
+     * Set the value of updated_at
+     *
+     * @param  \DateTime|null  $updated_at
+     *
+     * @return  self
+     */
+    public function setUpdated_at()
+    {
+        $this->updated_at = new \DateTime('now');
+        return $this;
     }
 
     #endregion
