@@ -155,7 +155,7 @@ class Event
     }
 
     /**
-     * Get nOTE: This is not a mapped field of entity metadata, just a simple property.
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @return  File|null
      */
@@ -165,7 +165,7 @@ class Event
     }
 
     /**
-     * Set nOTE: This is not a mapped field of entity metadata, just a simple property.
+     * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @param  File|null  $imageFile  NOTE: This is not a mapped field of entity metadata, just a simple property.
      *

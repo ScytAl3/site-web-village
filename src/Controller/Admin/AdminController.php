@@ -64,7 +64,7 @@ class AdminController extends AbstractController
     public function create(Request $request): Response
     {
         $event = new Event();
-        $createForm = $this->createForm(EventType::class, $Event);
+        $createForm = $this->createForm(EventType::class, $event);
         $createForm->handleRequest($request);
 
         if ($createForm->isSubmitted() && $createForm->isValid()) {
