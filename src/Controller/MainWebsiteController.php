@@ -35,12 +35,12 @@ class MainWebsiteController extends AbstractController
     }
 
     /**
-     * @Route("/find/us", name="find_us")
+     * @Route("/find-us", name="find-us")
      */
     public function findUs()
     {
-        return $this->render('find_us/index.html.twig', [
-            'current_menu' => 'find_us',
+        return $this->render('find-us/index.html.twig', [
+            'current_menu' => 'find-us',
         ]);
     }
 

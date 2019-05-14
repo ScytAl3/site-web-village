@@ -4,7 +4,21 @@
  * We recommend including the built version of this JavaScript file
  * (and its CSS file) in your base layout (base.html.twig).
  */
+// Api Client Places.js for autocompletion of the address
+import Places from 'places.js'
 
+let inputAddress = document.querySelector('#event_address')
+if (inputAddress !== null) {
+    let place = Places({
+        container: inputAddress
+    })
+    place.on('change', e => {
+        document.querySelector('#event_city').value = e.suggestion.city
+        document.querySelector('#event_zip_code').value = e.suggestion.postcode
+        document.querySelector('#event_lat').value = e.suggestion.latlng.lat
+        document.querySelector('#event_lng').value = e.suggestion.latlng.lng
+    })
+}
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
 require('../css/global.scss');

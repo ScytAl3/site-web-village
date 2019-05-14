@@ -18,6 +18,11 @@ class EventType extends AbstractType
             ->add('endDateEvent')
             ->add('description')
             ->add('body')
+            ->add('city')
+            ->add('address')
+            ->add('zip_code')
+            ->add('lat')
+            ->add('lng')
             ->add('imageFile', FileType::class, [
                 'required' => \false
             ]);
