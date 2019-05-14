@@ -41,6 +41,10 @@ Encore
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
+    // reflect the images folder structure 
+    .configureFilenames({
+        images: '[path][name].[hash:8].[ext]',
+    })
 
     // enables @babel/preset-env polyfills
     .configureBabel(() => {}, {
@@ -64,6 +68,8 @@ Encore
 // uncomment if you use API Platform Admin (composer req api-admin)
 //.enableReactPreset()
 //.addEntry('admin', './assets/js/admin.js')
+
 ;
 
+// export the final configuration
 module.exports = Encore.getWebpackConfig();

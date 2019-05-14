@@ -17,17 +17,25 @@
     </head>
 
     <body>
-
+        <!--    header Area Start   -->
         <header>
-            <div class="row">
-                <img src="{{ assets('images/home') }}" alt="">
+            <div>
+                <div class="row">
+                    <div class="col-12">
+                        <div>
+                            <img src="{{ asset('build/assets/images/home/Saint-Hilaire-du-Harcouet-sm.jpg') }}"
+                                alt="image du village">
+                        </div>
+                        {{ include('include/navbar.html.twig') }}
+                    </div>
+                </div>
             </div>
-            {{ include('include/navbar.html.twig') }}
         </header>
+        <!--   ./header Area Start   -->
 
-        <!--    DIV POUR AFFICHER DIFFERENTS MESSAGE    -->
+        <!-- DIV POUR AFFICHER DIFFERENTS MESSAGE -->
         {% for message in app.flashes('success') %}
-        <div class="alert alert-success text-center">
+        <div class="container alert alert-success text-center">
             {{ message }}
         </div>
         {% endfor %}
