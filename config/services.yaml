@@ -32,3 +32,8 @@ services:
         class: Twig\Extensions\IntlExtension
         tags:
             - { name: twig.extension }
+
+    # ImageCacheSubscriber
+    App\Listener\ImageCacheSubscriber:
+        tags:
+            - { name: doctrine.event_sunscriber }

@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class EventType extends AbstractType
 {
@@ -21,10 +22,11 @@ class EventType extends AbstractType
             ->add('city')
             ->add('address')
             ->add('zip_code')
-            ->add('lat')
-            ->add('lng')
-            ->add('imageFile', FileType::class, [
-                'required' => \false
+            ->add('lat', HiddenType::class)
+            ->add('lng', HiddenType::class)
+            ->add('pictureFiles', FileType::class, [
+                'required' => \false,
+                'multiple' => \true
             ]);
     }
 

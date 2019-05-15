@@ -1,9 +1,9 @@
 <div class="col-md-6 mb-4">
     <div class="card h-100 shadow-sm">
         <!--    AJOUT IMAGE ASSOCIEE A L EVENEMENT  -->
-        {% if event.imageName %}
-        <img src="{{ vich_uploader_asset(event, 'imageFile') | imagine_filter('thumb') }}" alt="image de l'événement"
-            class="card-img-top" style="width: 100%; height:auto" />
+        <!-- Si l evenement contient des photos -->
+        {% if event.pictures is not empty %}
+
         {% endif %}
         <div class="card-body">
             <h6 class="card-title text-center">from

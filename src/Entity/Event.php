@@ -4,18 +4,16 @@ namespace App\Entity;
 
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use Symfony\Component\HttpFoundation\File\File;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Event
  * 
  * @ORM\Table(name="event")
  * @ORM\Entity(repositoryClass="App\Repository\EventRepository")
- * @ORM\HasLifecycleCallbacks()
- * 
- * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks() 
  */
 class Event
 {
@@ -33,21 +31,6 @@ class Event
      * @ORM\Column(name="idEvent", type="integer")
      */
     private $idEvent;
-
-    /**
-     * @var string|null
-     * 
-     * @ORM\Column(type="string", length=255, nullable=true)  
-     */
-    private $imageName;
-
-    /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * @var File|null
-     * 
-     * @Vich\UploadableField(mapping="event_image", fileNameProperty="imageName") 
-     */
-    private $imageFile;
 
     /**
      * @var string
@@ -123,6 +106,18 @@ class Event
      */
     private $lng;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Picture", mappedBy="event", orphanRemoval=true, cascade={"persist"})
+     */
+    private $pictures;
+
+    /**
+     * @Assert\All({
+     *      @Assert\Image(mimeTypes="image/jpeg")
+     * })
+     */
+    private $pictureFiles;
+
     #endregion
 
     /*-----------------------------------------------------------------------------------
@@ -135,6 +130,7 @@ class Event
     public function __construct()
     {
         $this->created_at = new \DateTime('now');
+        $this->pictures = new ArrayCollection();
     }
 
     /*-----------------------------------------------------------------------------------
@@ -152,58 +148,6 @@ class Event
     {
         return $this->idEvent;
     }
-
-
-    /**
-     * Get the value of imageName
-     *
-     * @return  string|null
-     */
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
-
-    /**
-     * Set the value of imageName
-     *
-     * @param  string|null  $imageName
-     *
-     * @return  self
-     */
-    public function setImageName($imageName): self
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     *
-     * @return  File|null
-     */
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
-
-    /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     *
-     * @param  File|null  $imageFile  NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * 
-     * @return Event
-     */
-    public function setImageFile(?File $imageFile = null): Event
-    {
-        $this->imageFile = $imageFile;
-        if ($this->imageFile instanceof  UploadedFile) {
-            $this->updated_at = new \DateTime('now');
-        }
-        return $this;
-    }
-
 
     /**
      * Get title
@@ -377,7 +321,6 @@ class Event
     public function setCity(?string $city): self
     {
         $this->city = $city;
-
         return $this;
     }
 
@@ -389,7 +332,6 @@ class Event
     public function setAddress(?string $address): self
     {
         $this->address = $address;
-
         return $this;
     }
 
@@ -401,7 +343,6 @@ class Event
     public function setZipCode(?int $zip_code): self
     {
         $this->zip_code = $zip_code;
-
         return $this;
     }
 
@@ -413,7 +354,6 @@ class Event
     public function setLat(float $lat): self
     {
         $this->lat = $lat;
-
         return $this;
     }
 
@@ -425,10 +365,66 @@ class Event
     public function setLng(float $lng): self
     {
         $this->lng = $lng;
+        return $this;
+    }
 
+    /**
+     * @return Collection|Picture[]
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Picture $picture): self
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures[] = $picture;
+            $picture->setEvent($this);
+        }
+        return $this;
+    }
+
+    public function removePicture(Picture $picture): self
+    {
+        if ($this->pictures->contains($picture)) {
+            $this->pictures->removeElement($picture);
+            // set the owning side to null (unless already changed)
+            if ($picture->getEvent() === $this) {
+                $picture->setEvent(null);
+            }
+        }
         return $this;
     }
 
     #endregion
 
+
+    /**
+     * Get })
+     */
+    public function getPictureFiles()
+    {
+        return $this->pictureFiles;
+    }
+
+    /**
+     * Set })
+     *
+     * @return  self
+     */
+    public function setPictureFiles($pictureFiles): self
+    {
+        // On parcourt les images ajoutees
+        foreach ($pictureFiles as $pictureFile) {
+            // A chaque image on instancie d une photo
+            $picture = new Picture();
+            // On defini le fichier avec la methode setImageFile() de Picture
+            $picture->setImageFile($pictureFile);
+            // On ajoute la nouvelle image a cette instance de Event
+            $this->addPicture($picture);
+        }
+        $this->pictureFiles = $pictureFiles;
+        return $this;
+    }
 }
