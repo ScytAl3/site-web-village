@@ -36,4 +36,4 @@ services:
     # ImageCacheSubscriber
     App\Listener\ImageCacheSubscriber:
         tags:
-            - { name: doctrine.event_sunscriber }
+            - { name: doctrine.event_subscriber }

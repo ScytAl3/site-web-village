@@ -4,6 +4,9 @@
         <!-- Si l evenement contient des photos -->
         {% if event.pictures is not empty %}
 
+        {% else %}
+        <img src="{{ '/images/events/empty_picture.jpg' }}" alt="Aucune image associée" class="card-img-top"
+            style="width: 100%; height:auto">
         {% endif %}
         <div class="card-body">
             <h6 class="card-title text-center">from
