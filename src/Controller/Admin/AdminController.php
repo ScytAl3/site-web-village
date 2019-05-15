@@ -51,7 +51,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/edit.html.twig', [
-            'monEvent' => $event,
+            'oneEvent' => $event,
             'form' => $editForm->createView()
         ]);
     }

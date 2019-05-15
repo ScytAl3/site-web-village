@@ -14,7 +14,12 @@
     <div class="col-md-4">
         <!-- Grid row pictures -->
         <div class="row flex">
-
+            {% for picture in oneEvent.pictures %}
+            <div class="col">
+                <img src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('thumb') }}"
+                    alt="images de l'événement" class="card-img-top" width="100">
+            </div>
+            {% endfor %}
         </div>
         <!-- ./Grid row pictures -->
     </div>

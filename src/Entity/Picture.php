@@ -15,6 +15,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Picture
 {
+    /*-----------------------------------------------------------------------------------
+     *                                           Properties 
+    ----------------------------------------------------------------------------------- */
+
+    #region
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue(strategy="AUTO")
@@ -27,14 +33,14 @@ class Picture
      * 
      * @ORM\Column(type="string", length=255, nullable=true)  
      */
-    private $imageName;
+    private $filename;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      * @var File|null
      * @Assert\Image(mimeTypes="image/jpeg")
      * 
-     * @Vich\UploadableField(mapping="event_image", fileNameProperty="imageName") 
+     * @Vich\UploadableField(mapping="event_image", fileNameProperty="filename") 
      */
     private $imageFile;
 
@@ -49,26 +55,34 @@ class Picture
         return $this->idPicture;
     }
 
+    #endregion
+
+    /*-----------------------------------------------------------------------------------
+     *                                         Getters - Setters 
+    ----------------------------------------------------------------------------------- */
+
+    #region
+
     /**
-     * Get the value of imageName
+     * Get the value of filename
      *
      * @return  string|null
      */
-    public function getImageName(): ?string
+    public function getFilename(): ?string
     {
-        return $this->imageName;
+        return $this->filename;
     }
 
     /**
-     * Set the value of imageName
+     * Set the value of filename
      *
-     * @param  string|null  $imageName
+     * @param  string|null  $filename
      *
      * @return  self
      */
-    public function setImageName(?string $imageName): self
+    public function setFilename(?string $filename): self
     {
-        $this->imageName = $imageName;
+        $this->filename = $filename;
 
         return $this;
     }
@@ -95,7 +109,7 @@ class Picture
         $this->imageFile = $imageFile;
         return $this;
     }
-    
+
     public function getEvent(): ?Event
     {
         return $this->event;
@@ -107,4 +121,7 @@ class Picture
 
         return $this;
     }
+
+    #endregion
+
 }

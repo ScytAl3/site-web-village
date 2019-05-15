@@ -17,10 +17,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Event
 {
-
     /*-----------------------------------------------------------------------------------
      *                                           Properties 
     ----------------------------------------------------------------------------------- */
+
     #region
 
     /**
@@ -369,12 +369,46 @@ class Event
     }
 
     /**
+     * Get })
+     */
+    public function getPictureFiles()
+    {
+        return $this->pictureFiles;
+    }
+
+    /**
+     * Set })
+     *
+     * @return  Event
+     */
+    public function setPictureFiles($pictureFiles): self
+    {
+        // On parcourt les images ajoutees
+        foreach ($pictureFiles as $pictureFile) {
+            // A chaque image on instancie d une photo
+            $picture = new Picture();
+            // On defini le fichier avec la methode setImageFile() de Picture
+            $picture->setImageFile($pictureFile);
+            // On ajoute la nouvelle image a cette instance de Event
+            $this->addPicture($picture);
+        }
+        $this->pictureFiles = $pictureFiles;
+        return $this;
+    }
+
+    /**
      * @return Collection|Picture[]
      */
     public function getPictures(): Collection
     {
         return $this->pictures;
     }
+
+ #endregion
+
+  /*-----------------------------------------------------------------------------------
+     *                                         Methods
+    ----------------------------------------------------------------------------------- */
 
     public function addPicture(Picture $picture): self
     {
@@ -397,34 +431,6 @@ class Event
         return $this;
     }
 
-    #endregion
-
-
-    /**
-     * Get })
-     */
-    public function getPictureFiles()
-    {
-        return $this->pictureFiles;
-    }
-
-    /**
-     * Set })
-     *
-     * @return  self
-     */
-    public function setPictureFiles($pictureFiles): self
-    {
-        // On parcourt les images ajoutees
-        foreach ($pictureFiles as $pictureFile) {
-            // A chaque image on instancie d une photo
-            $picture = new Picture();
-            // On defini le fichier avec la methode setImageFile() de Picture
-            $picture->setImageFile($pictureFile);
-            // On ajoute la nouvelle image a cette instance de Event
-            $this->addPicture($picture);
-        }
-        $this->pictureFiles = $pictureFiles;
-        return $this;
-    }
+   
+   
 }
