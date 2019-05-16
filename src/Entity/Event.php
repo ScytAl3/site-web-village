@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Picture;
 use Cocur\Slugify\Slugify;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
@@ -404,9 +405,22 @@ class Event
         return $this->pictures;
     }
 
- #endregion
+    /**
+     * Retourne la premiere image de la collection si elle existe
+     *
+     * @return Picture|null
+     */
+    public function getPicture(): ?Picture
+    {
+        if ($this->pictures->isEmpty()) {
+            return \null;
+        }
+        return $this->pictures->first();
+    }
 
-  /*-----------------------------------------------------------------------------------
+    #endregion
+
+    /*-----------------------------------------------------------------------------------
      *                                         Methods
     ----------------------------------------------------------------------------------- */
 
@@ -430,7 +444,4 @@ class Event
         }
         return $this;
     }
-
-   
-   
 }

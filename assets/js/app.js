@@ -38,6 +38,29 @@ require('bootstrap');
 const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
 imagesContext.keys().forEach(imagesContext);
 
+// Suppression des elements
+document.querySelectorAll('[data-delete]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault()
+        fetch(a.getAttribute('href'), {
+                method: 'DELETE',
+                headers: {
+                    'X-Requested-with': 'XMLHttprequest',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({'_token': a.dataset.token})
+            }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    a.parentNode.parentNode.removeChild(a.parentNode)
+                } else {
+                    alert(data.error)
+                }
+            })
+            .catch(e => alert(e))
+    })
+})
+
 // require fonts
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');

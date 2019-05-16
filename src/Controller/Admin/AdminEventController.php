@@ -2,16 +2,16 @@
 
 namespace App\Controller\Admin;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Common\Persistence\ObjectManager;
 use App\Entity\Event;
-use App\Repository\EventRepository;
 use App\Form\EventType;
+use App\Repository\EventRepository;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class AdminController extends AbstractController
+class AdminEventController extends AbstractController
 {
 
     private $entityManager;
@@ -51,7 +51,7 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/edit.html.twig', [
-            'oneEvent' => $event,
+            'myEvent' => $event,
             'form' => $editForm->createView()
         ]);
     }
@@ -74,23 +74,23 @@ class AdminController extends AbstractController
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/create.html.twig', [
-            'createEvent' => $event,
+            'myEvent' => $event,
             'form' => $createForm->createView()
         ]);
     }
 
     /**
      * @Route("/admin/event/{id}", name="admin.event.delete", methods="DELETE")
-     * @param Event $Event
+     * @param Event $event
      * @param Request $request
      * @return Response
      */
-    public function delete(Event $Event, Request $request): Response
+    public function delete(Event $event, Request $request): Response
     {
         // On verifie si  le token associe au bouton Delete est valide
-        if ($this->isCsrfTokenValid('delete' . $Event->getIdEvent(), $request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $event->getIdEvent(), $request->get('_token'))) {
             // On prepare la  suppression de l entite Event selectionne
-            $this->entityManager->remove($Event);
+            $this->entityManager->remove($event);
             // On execute la requete de suppression - transaction
             $this->entityManager->flush();
             $this->addFlash('success', 'The event has been successfully deleted');

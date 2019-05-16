@@ -3,8 +3,8 @@ vich_uploader:
 
     mappings:
         event_image:
-            uri_prefix: /images/events
-            upload_destination: '%kernel.project_dir%/public/images/events'
+            uri_prefix: /media/events
+            upload_destination: '%kernel.project_dir%/public/media/events'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
 
             # Should the file be injected into the uploadable entity when it is loaded from the data store

@@ -17,20 +17,24 @@
     <div class="row">
         <!--    div pour afficher des images    -->
         <div class="col-md-7">
-            {% if myEvent.pictures is not empty %}
             <!-- Grid row pictures -->
-            <div class="row flex">
+            <div class="column">
+                <!-- On itere la liste des images -->
                 {% for picture in myEvent.pictures %}
-                <div class="col">
+                <div class="col mt-5">
                     <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
                         class="card-img-top" style="width: 100%; height:auto">
                 </div>
+                <!-- Si aucune iteration parce la sequence etait vide -->
+                {% else %}
+                <div class="col">
+                    <img src="{{ '/images/empty_picture.jpg' }}" alt="Aucune image associée" class="card-img-top"
+                        style="width: 100%; height:auto">
+                </div>
                 {% endfor %}
             </div>
-            {% else %}
-            <img src="{{ '/images/events/empty_picture.jpg' }}" alt="Aucune image associée" class="card-img-top"
-                style="width: 100%; height:auto">
-            {% endif %}
+
+
         </div>
         <!--    div pour le texte   -->
         <div class="col-md-5">

@@ -21,6 +21,16 @@ class EventRepository extends ServiceEntityRepository
     }
 
     /**
+     * Methode qui retourne tous les evenements cree dans l ordre decroissant
+     *
+     * @return void
+     */
+    public function findAll()
+    {
+        return $this->findBy(array(), array('idEvent' => 'DESC'));
+    }
+
+    /**
      * Methode pour recuperer les derniers Events
      *
      * @return array

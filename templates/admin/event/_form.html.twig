@@ -13,11 +13,14 @@
     </div>
     <div class="col-md-4">
         <!-- Grid row pictures -->
-        <div class="row flex">
-            {% for picture in oneEvent.pictures %}
-            <div class="col">
+        <div class="row flex justify-content-start flex-wrap">
+            <!-- On itere la liste des images -->
+            {% for picture in myEvent.pictures %}
+            <div class="col" style="width: 100px; flex: none; margin: 5px;">
                 <img src="{{ vich_uploader_asset(picture, 'imageFile') | imagine_filter('thumb') }}"
-                    alt="images de l'événement" class="card-img-top" width="100">
+                    alt="image de l'événement" class="card-img-top" width="100">
+                <a href="{{ path('admin.picture.delete', {id: picture.idPicture}) }}" class="btn btn-danger" data-delete
+                    data-token="{{ csrf_token('delete' ~ picture.idPicture) }}">Delete</a>
             </div>
             {% endfor %}
         </div>
