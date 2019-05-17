@@ -33,13 +33,6 @@
         </header>
         <!--   ./header Area Start   -->
 
-        <!-- DIV POUR AFFICHER DIFFERENTS MESSAGE -->
-        {% for message in app.flashes('success') %}
-        <div class="container alert alert-success text-center">
-            {{ message }}
-        </div>
-        {% endfor %}
-
         {% block body %}{% endblock %}
         <hr>
         <footer class="d-flex flex-column flex-md-column text-center">

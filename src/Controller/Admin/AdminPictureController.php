@@ -29,7 +29,6 @@ class AdminPictureController extends AbstractController
             $entityManager->remove($picture);
             // On execute la requete de suppression - transaction
             $entityManager->flush();
-            $this->addFlash('success', 'The picture has been successfully deleted');
             return new JsonResponse(['success' => 1]);
         }
         return new JsonResponse(['error' => 'invalid token'], 400);
