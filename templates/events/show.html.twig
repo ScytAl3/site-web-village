@@ -19,19 +19,22 @@
         <div class="col-md-7">
             <!-- Grid row pictures -->
             <div class="column">
-                <!-- On itere la liste des images -->
+                <!-- Si la collection d images est  vide -->
+                {% if myEvent.pictures is empty %}
+                <!-- On affiche une image par defaut -->
+                <div class="col">
+                    <img src="{{ '/images/empty_picture.jpg' }}" alt="Aucune image associée" class="card-img-top"
+                        style="width: 100%; height:auto">
+                </div>
+                {% else %}
+                <!-- Sinon on itere la liste des images -->
                 {% for picture in myEvent.pictures %}
                 <div class="col mt-5">
                     <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
                         class="card-img-top" style="width: 100%; height:auto">
                 </div>
-                <!-- Si aucune iteration parce la sequence etait vide -->
-                {% else %}
-                <div class="col">
-                    <img src="{{ '/images/empty_picture.jpg' }}" alt="Aucune image associée" class="card-img-top"
-                        style="width: 100%; height:auto">
-                </div>
                 {% endfor %}
+                {% endif %}
             </div>
 
 
