@@ -30,15 +30,16 @@ class EventsController extends AbstractController
     }
 
     /**
-     * @Route("/events", name="events.index")
+     * @Route("/events/list", name="events.list")
      *
      * @return Response
      */
     public function showAllEvent(): Response
     {
         $listEvent = $this->EventRepository->findAll();
-        return $this->render('events/index.html.twig', [
-            'theEvents' => $listEvent
+        return $this->render('events/list.html.twig', [
+            'theEvents' => $listEvent,
+            'current_menu' => 'eventsList'
         ]);
     }
 

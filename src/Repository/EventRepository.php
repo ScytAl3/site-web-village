@@ -31,27 +31,53 @@ class EventRepository extends ServiceEntityRepository
     }
 
     /**
-     * Methode pour recuperer les derniers Events
+     * Methode pour recuperer les evenements commences
      *
      * @return array
      */
-    public function findLatest(): array
+    public function findCurrent(): array
     {
-        // Appelle de la methode findCurrentNextQuery() 
-        return $this->findCurrentNextQuery()
+        // Appelle de la methode findCurrentQuery() 
+        return $this->findCurrentQuery()
             ->getQuery()
             ->getResult();
     }
 
     /**
-     * Methode qui retourne les Events dont la date de fin est supérieure a la date du jour
+     * Methode pour recuperer les prochains evenements
+     *
+     * @return array
+     */
+    public function findNext(): array
+    {
+        // Appelle de la methode findNextQuery() 
+        return $this->findNextQuery()
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Methode qui retourne les evenements dont la date de fin est supérieure a la date du jour
      *
      * @return \Doctrine\ORM\QueryBuilder
      */
-    private function findCurrentNextQuery(): DoctrineQueryBuilder
+    private function findCurrentQuery(): DoctrineQueryBuilder
     {
         return $this->createQueryBuilder('e')
-            ->where('e.endDateEvent > :today')
+            ->where('e.endDateEvent >= :today')
+            ->setParameter('today', new \DateTime())
+            ->orderBy('e.endDateEvent');
+    }
+
+    /**
+     * Methode qui retourne les evenements dont la date de debut est superieure a la date du jour
+     *
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    private function findNextQuery(): DoctrineQueryBuilder
+    {
+        return $this->createQueryBuilder('e')
+            ->where('e.startDateEvent > :today')
             ->setParameter('today', new \DateTime())
             ->orderBy('e.startDateEvent');
     }

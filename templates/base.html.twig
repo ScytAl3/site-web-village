@@ -17,32 +17,34 @@
     </head>
 
     <body>
-        <!--    header Area Start   -->
+        <!-- header area start   -->
         <header>
             <div>
-                <div class="row">
-                    <div class="col-12">
-                        <div>
-                            <img src="{{ asset('build/assets/images/home/Saint-Hilaire-du-Harcouet-sm.jpg') }}"
-                                alt="image du village">
-                        </div>
-                        {{ include('include/navbar.html.twig') }}
-                    </div>
-                </div>
+                <img src="{{ asset('build/assets/images/home/Saint-Hilaire-du-Harcouet-sm.jpg') }}"
+                    alt="image du village">
             </div>
         </header>
-        <!--   ./header Area Start   -->
+        <!-- ./header area start   -->
 
-        {% block body %}{% endblock %}
+        <!-- navbar area start-->
+        {{ include('include/navbar.html.twig') }}
+        <!-- ./navbar area start-->
+
+
+        <main>
+            {% block body %}{% endblock %}
+        </main>
         <hr>
-        <footer class="d-flex flex-column flex-md-column text-center">
-            {{ include('include/footer.html.twig') }}
-        </footer>
+        {% block footer %}
+        <!-- footer area start -->
+        {{ include('include/footer.html.twig') }}
+        <!-- ./footer area start -->
+        {% endblock %}
 
         {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         {% endblock %}
-
+        
     </body>
 
 </html>

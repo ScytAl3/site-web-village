@@ -25,7 +25,9 @@ class EventFixtures extends Fixture
                 ->setStartDateEvent($faker->dateTimeThisMonth('now'))
                 ->setEndDateEvent($faker->dateTimeBetween($event->getStartDateEvent(), '+5 days'))
                 ->setDescription($faker->text(100))
-                ->setBody($faker->text(600));
+                ->setBody($faker->text(600))
+                ->setLat(0)
+                ->setLng(0);
 
             $manager->persist($event);
         }

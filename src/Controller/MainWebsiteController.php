@@ -17,8 +17,10 @@ class MainWebsiteController extends AbstractController
      */
     public function home(EventRepository $EventRepository)
     {
-        $nextEvent  = $EventRepository->findLatest();
-        return $this->render('main_website/accueil.html.twig', [
+        $currentEvent = $EventRepository->findCurrent();
+        $nextEvent  = $EventRepository-> findNext();
+        return $this->render('main_website/accueil.html.twig', [           
+            'currentEvent' => $currentEvent,
             'nextEvent' => $nextEvent,
             'current_menu' => 'home'
         ]);

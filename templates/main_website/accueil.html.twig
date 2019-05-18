@@ -4,36 +4,155 @@
 {% endblock %}
 
 {% block body %}
-<!-- Main jumbotron for a primary marketing message or call to action -->
-<div class="jumbotron">
-    <div class="container">
-        <h1 class="display-3">Bonjour et bienvenue</h1>
-        <p>Cillum cupidatat veniam anim exercitation nulla ad exercitation ut ea reprehenderit deserunt. Ex labore
-            ullamco labore exercitation amet reprehenderit aliqua. Cupidatat eu laborum proident magna labore Lorem
-            dolore. Id magna duis duis duis enim magna irure dolor sint. Aute eiusmod non proident reprehenderit
-            proident culpa aute in eu non ut commodo. Ad consequat id sit voluptate exercitation.</p>
-        <p>
-            <a class="btn btn-primary btn-lg" href="{{ path('history') }}" role=" button">Learn more &raquo;</a>
-        </p>
+<!-- jumbotron qui affiche un introduction de l historique et un lien vers la page history -->
+<section>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-3">Hello and welcome, </h1>
+            <p>Cillum cupidatat veniam anim exercitation nulla ad exercitation ut ea reprehenderit deserunt. Ex labore
+                ullamco labore exercitation amet reprehenderit aliqua. Cupidatat eu laborum proident magna labore Lorem
+                dolore. Id magna duis duis duis enim magna irure dolor sint. Aute eiusmod non proident reprehenderit
+                proident culpa aute in eu non ut commodo. Ad consequat id sit voluptate exercitation.</p>
+            <p>
+                <a class="btn btn-primary btn-lg" href="{{ path('history') }}" role=" button">Learn more &raquo;</a>
+            </p>
+        </div>
     </div>
-</div>
+</section>
+<!-- ./jumbotron qui affiche un introduction de l historique et un lien vers la page history-->
 
-<div class="container">
-    <h1 class="text-center">Calendar of upcoming events</h1>
-    <br>
-    <hr>
-    <!-- Affichage des Events a venir -->
+<!-- section -->
+<section class="container">
     <div class="row">
-        {% if nextEvent %}
-        {% for event in nextEvent %}
-        {{ include('include/event.html.twig') }}
-        {% endfor %}
-        {% else %}
-        <p>There are no events to display !</p>
-        {% endif %}
+
+        <!-- menu tabs pour selectionner les evenements en cours ou a venir -->
+        <div class="col-8">
+            <h1 class="text-center">Calendar of upcoming events</h1>
+            <hr>
+            <!-- tabs -->
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#current">Current events</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#toCome">Events to come</a>
+                </li>
+            </ul>
+            <!-- ./tabs -->
+
+            <!-- zone pour afficher les evenements -->
+            <div id="myTabContent" class="tab-content">
+
+                <!-- affichage des evenements en cours -->
+                <div class="tab-pane fade show active" id="current">
+                    <div class="row">
+                        {% if currentEvent %}
+                        {% for event in currentEvent %}
+                        {{ include('include/event.html.twig') }}
+                        {% endfor %}
+                        {% else %}
+                        <p>There are no events to display !</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- ./affichage des evenements en cours -->
+
+                <!-- affichage des evenements a venir -->
+                <div class="tab-pane fade" id="toCome">
+                    <div class="row">
+                        {% if nextEvent %}
+                        {% for event in nextEvent %}
+                        {{ include('include/event.html.twig') }}
+                        {% endfor %}
+                        {% else %}
+                        <p>There are no events to display !</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <!-- ./affichage des evenements a venir -->
+                <!-- ./zone pour afficher les evenements -->
+            </div>
+        </div>
+        <!-- ./menu tabs pour afficher les evenements en cours & a venir -->
+
+        <!-- affichage des widget -->
+        <aside class="col-4">
+            <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Primary card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Secondary card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-success mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Success card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-danger mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Danger card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Warning card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-info mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Info card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card bg-light mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Light card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <div class="card text-white bg-dark mb-3" style="max-width: 20rem;">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                    <h4 class="card-title">Dark card title</h4>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                        card's
+                        content.</p>
+                </div>
+            </div>
+            <!-- ./affichage des widget -->
 
     </div>
-</div>
-<!-- /container -->
+</section>
+<!-- ./section -->
 
 {% endblock %}
