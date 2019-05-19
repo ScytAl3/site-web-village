@@ -6,8 +6,17 @@
  */
 // Api Client Places.js for autocompletion of the address
 import Places from 'places.js'
+// Import Leaflet library
+import Map from './modules/map.js'
+// Import de Slick-carousel pour l affichage des images d un evenement
+import 'slick-carousel'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-let inputAddress = document.querySelector('#event_address')
+// Initialisation de la map
+Map.init()
+// On recupere en fonction de la saisie dynamique de la rue les elements restants
+let inputAddress = document.querySelector('#event_address') 
 if (inputAddress !== null) {
     let place = Places({
         container: inputAddress
@@ -19,6 +28,13 @@ if (inputAddress !== null) {
         document.querySelector('#event_lng').value = e.suggestion.latlng.lng
     })
 }
+
+// on selectionne tous les elements du document qui on le data-slider pour y appliquer Slick
+$('[data-slider]').slick({
+    dots: true,
+    arrows: true
+})
+
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
 require('../css/global.scss');
@@ -48,7 +64,9 @@ document.querySelectorAll('[data-delete]').forEach(a => {
                     'X-Requested-with': 'XMLHttprequest',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({'_token': a.dataset.token})
+                body: JSON.stringify({
+                    '_token': a.dataset.token
+                })
             }).then(response => response.json())
             .then(data => {
                 if (data.success) {

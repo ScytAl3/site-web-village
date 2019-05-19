@@ -11,8 +11,8 @@
         {% else %}
         <!-- Sinon on affiche une image par defaut -->
         <div class="col mt-2">
-            <img src="{{ '/images/empty_picture.jpg' }}" alt="Aucune image associée" class="card-img-top"
-                style="width: 100%; height:auto">
+            <img src="{{ asset('build/images/default/empty_picture.jpg') }}" alt="Aucune image associée"
+                class="card-img-top" style="width: 100%; height:auto">
         </div>
         {% endif %}
         <!-- ./Ajout image associee a l evenement -->

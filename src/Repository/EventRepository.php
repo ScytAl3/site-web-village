@@ -65,6 +65,7 @@ class EventRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('e')
             ->where('e.endDateEvent >= :today')
+            ->andWhere('e.startDateEvent <= :today')
             ->setParameter('today', new \DateTime())
             ->orderBy('e.endDateEvent');
     }

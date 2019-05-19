@@ -1,16 +1,16 @@
 <!--    CHANGE THE NAVBAR COLOR IF CONNECTED AS ADMIN  -->
 {% if is_granted('ROLE_ADMIN') %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow fixed-top">
     {% else %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
         {% endif %}
         <a class="navbar-brand" href="{{ path('home') }}">MyBeautifulTown</a>
-        <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
-            class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+            aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {% if  current_menu is defined and current_menu == 'home' %}active{% endif %}">
                     <a class="nav-link" href="{{ path('home') }}">Home</a>

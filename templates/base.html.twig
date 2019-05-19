@@ -9,7 +9,6 @@
             {% block title %}Welcome!
             {% endblock %}
         </title>
-        <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
         {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -18,23 +17,24 @@
 
     <body>
         <!-- header area start   -->
+        {% block header %}
         <header>
-            <div>
-                <img src="{{ asset('build/assets/images/home/Saint-Hilaire-du-Harcouet-sm.jpg') }}"
-                    alt="image du village">
+            <!-- navbar area start-->
+            {{ include('include/navbar.html.twig') }}
+            <!-- ./navbar area start-->
+            <div class="bg-img">
             </div>
+
         </header>
         <!-- ./header area start   -->
-
-        <!-- navbar area start-->
-        {{ include('include/navbar.html.twig') }}
-        <!-- ./navbar area start-->
+        {% endblock %}
 
 
         <main>
             {% block body %}{% endblock %}
         </main>
         <hr>
+
         {% block footer %}
         <!-- footer area start -->
         {{ include('include/footer.html.twig') }}
@@ -44,7 +44,7 @@
         {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         {% endblock %}
-        
+
     </body>
 
 </html>
