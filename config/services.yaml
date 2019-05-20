@@ -37,3 +37,8 @@ services:
     App\Listener\ImageCacheSubscriber:
         tags:
             - { name: doctrine.event_subscriber }
+
+    # LocalSubscriber
+    App\Listener\LocaleSubscriber:
+        tags: [kernel.event_subscriber]
+        arguments: ['%kernel.default_locale%']

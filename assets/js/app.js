@@ -29,10 +29,10 @@ if (inputAddress !== null) {
     })
 }
 
-$('[data-slider]').slick({
-    dots: true,
-    arrows: true
-});
+//$('[data-slider]').slick({
+//    dots: true,
+//    arrows: true
+//});
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
@@ -59,15 +59,15 @@ document.querySelectorAll('[data-delete]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault()
         fetch(a.getAttribute('href'), {
-            method: 'DELETE',
-            headers: {
-                'X-Requested-with': 'XMLHttprequest',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                '_token': a.dataset.token
-            })
-        }).then(response => response.json())
+                method: 'DELETE',
+                headers: {
+                    'X-Requested-with': 'XMLHttprequest',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    '_token': a.dataset.token
+                })
+            }).then(response => response.json())
             .then(data => {
                 if (data.success) {
                     a.parentNode.parentNode.removeChild(a.parentNode)

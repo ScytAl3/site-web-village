@@ -28,6 +28,9 @@ class ImageCacheSubscriber implements EventSubscriber
 
     /**
      * Constructeur
+     *
+     * @param \Liip\ImagineBundle\Imagine\Cache\CacheManager $cacheManager
+     * @param \Vich\UploaderBundle\Templating\Helper\UploaderHelper $uploaderHelper
      */
     public function __construct(CacheManager $cacheManager, UploaderHelper $uploaderHelper)
     {
