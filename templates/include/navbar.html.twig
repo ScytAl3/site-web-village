@@ -1,17 +1,23 @@
-<!--    CHANGE THE NAVBAR COLOR IF CONNECTED AS ADMIN  -->
+<!-- Change the navbar color if connected as admin -->
 {% if is_granted('ROLE_ADMIN') %}
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow fixed-top">
     {% else %}
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
         {% endif %}
+        <!-- ./Change the navbar color if connected as admin -->
+
+        <!-- icone/logo navbar -->
         <a class="navbar-brand" href="{{ path('home') }}">MyBeautifulTown</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
             aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <!-- ./icone/logo navbar -->
 
+        <!-- navbar links-->
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class="navbar-nav mr-auto">
+                {% block header_navigation_links %}
                 <li class="nav-item {% if  current_menu is defined and current_menu == 'home' %}active{% endif %}">
                     <a class="nav-link" href="{{ path('home') }}">Home</a>
                 </li>
@@ -29,6 +35,9 @@
                     <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                 </li>
             </ul>
+            <!-- ./navbar links-->
+
+            <!-- logout link that appears when a user or admin is logged in -->
             {% if app.user %}
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
@@ -36,7 +45,11 @@
                 </li>
             </ul>
             {% endif %}
-            <span class="navbar-nav">
+            <!-- ./logout link that appears when a user or admin is logged in -->
+            {% endblock %}
+
+            <!-- link to change language -->
+            <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
                         data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
@@ -47,10 +60,15 @@
                         <a class="dropdown-item" href="#">English</a>
                     </div>
                 </li>
-            </span>
+            </ul>
+            <!-- ./link to change language -->
+
+            <!-- search area form -->
             <form class="form-inline my-2 my-lg-0">
-                <input aria-label="Search" class="form-control mr-sm-2" placeholder="Rechercher..." type="search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <input aria-label="Search" class="form-control mr-sm-2" placeholder="Search..." type="search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>
+            <!-- ./search area form -->
+
         </div>
     </nav>

@@ -16,7 +16,7 @@ import 'slick-carousel/slick/slick-theme.css'
 // Initialisation de la map
 Map.init()
 // On recupere en fonction de la saisie dynamique de la rue les elements restants
-let inputAddress = document.querySelector('#event_address') 
+let inputAddress = document.querySelector('#event_address')
 if (inputAddress !== null) {
     let place = Places({
         container: inputAddress
@@ -29,11 +29,10 @@ if (inputAddress !== null) {
     })
 }
 
-// on selectionne tous les elements du document qui on le data-slider pour y appliquer Slick
 $('[data-slider]').slick({
     dots: true,
     arrows: true
-})
+});
 
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
@@ -41,6 +40,7 @@ require('../css/global.scss');
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');
+
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
@@ -59,15 +59,15 @@ document.querySelectorAll('[data-delete]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault()
         fetch(a.getAttribute('href'), {
-                method: 'DELETE',
-                headers: {
-                    'X-Requested-with': 'XMLHttprequest',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    '_token': a.dataset.token
-                })
-            }).then(response => response.json())
+            method: 'DELETE',
+            headers: {
+                'X-Requested-with': 'XMLHttprequest',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                '_token': a.dataset.token
+            })
+        }).then(response => response.json())
             .then(data => {
                 if (data.success) {
                     a.parentNode.parentNode.removeChild(a.parentNode)
