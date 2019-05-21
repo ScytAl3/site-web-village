@@ -50,14 +50,22 @@
 
             <!-- link to change language -->
             <ul class="navbar-nav">
+                <!-- recupere le nom de la route -->
+                {% set route = app.request.attributes.get('_route') %}
+                <!-- recupere les parametres de la route {slug} et {id} -->
+                {% set route_params = app.request.attributes.get('_route_params') %}
+                {% set params = route_params|merge(app.request.query.all) %}
+                {% set currentLocal = app.request.locale %}
+
                 <li class="nav-item dropdown">
                     <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
                         data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
                         Select your language
                     </a>
                     <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Français</a>
-                        <a class="dropdown-item" href="#">English</a>
+                        <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: 'fr' })) }}">Français</a>
+                        <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: 'en' })) }}">English</a>
+                        <a href="">{{ currentLocal }}</a>
                     </div>
                 </li>
             </ul>

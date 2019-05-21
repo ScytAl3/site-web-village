@@ -6,41 +6,8 @@
 logout:
     path: /logout
 
-###########################################
-#                           Setting local route
-###########################################
-
-# Home route
-home:
-    path:       /{_locale}/home
-    controller: App\Controller\MainWebsiteController::home
-    requirements:
-        _locale: en|fr
-
-# History route
 history:
-    path:       /{_locale}/history
+    path: /{_locale}/history
     controller: App\Controller\MainWebsiteController::history
     requirements:
-        _locale: en|fr
-
-# Event  route
-events:
-    path:       /{_locale}/events/list
-    controller: App\Controller\EventsController::showAllEvent
-    requirements:
-        _locale: en|fr
-
-# Find us route
-find-us:
-    path:       /{_locale}/find-us
-    controller: App\Controller\MainWebsiteController::findUs
-    requirements:
-        _locale: en|fr
-
-# Contact route
-contact:
-    path:       /{_locale}/contact
-    controller: App\Controller\MainWebsiteController::contact
-    requirements:
-        _locale: en|fr
+         _locale: en|fr

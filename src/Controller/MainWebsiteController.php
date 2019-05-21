@@ -18,8 +18,8 @@ class MainWebsiteController extends AbstractController
     public function home(EventRepository $EventRepository)
     {
         $currentEvent = $EventRepository->findCurrent();
-        $nextEvent  = $EventRepository-> findNext();
-        return $this->render('main_website/accueil.html.twig', [           
+        $nextEvent  = $EventRepository->findNext();
+        return $this->render('main_website/accueil.html.twig', [
             'currentEvent' => $currentEvent,
             'nextEvent' => $nextEvent,
             'current_menu' => 'home'
@@ -37,7 +37,7 @@ class MainWebsiteController extends AbstractController
     }
 
     /**
-     * @Route("/find-us", name="find-us")
+     * @Route("/{_locale}/find-us", name="find-us")
      */
     public function findUs()
     {
@@ -49,7 +49,7 @@ class MainWebsiteController extends AbstractController
     /**
      * Call contact form
      * 
-     * @Route("/contact", name="contact")
+     * @Route("/{_locale}/contact", name="contact")
      * @param Request $request
      */
     public function contact(Request $request, ContactNotification $contactNotification)

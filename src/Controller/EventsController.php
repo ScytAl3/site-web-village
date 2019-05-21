@@ -30,7 +30,7 @@ class EventsController extends AbstractController
     }
 
     /**
-     * @Route("/events/list", name="events.list")
+     * @Route("/{_locale}/events/list", name="events.list")
      *
      * @return Response
      */
@@ -44,8 +44,8 @@ class EventsController extends AbstractController
     }
 
     /**
-     *@Route("/events/{slug}-{id}", name="events.show", requirements={"slug": "[a-z0-9\-]*"})
-     *@param Event $Event
+     * @Route("/{_locale}/events/{slug}-{id}",  name="events.show", requirements={"slug": "[a-z0-9\-]*"})
+     * @param Event $Event
      * @return Response
      */
     public function show(Event $Event, string $slug): Response
