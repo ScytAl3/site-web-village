@@ -1,0 +1,18 @@
+#-----------------------------------------------------------------
+#           translation catalog of the contact form
+#-----------------------------------------------------------------
+
+# element HTML
+contact:
+  header:
+    title: Contact us
+    text: Leave us a kind word (it's always a pleasure), ask us questions or reach.
+
+  form:
+    submit_bouton: Send
+
+# label
+Prénon: First name
+Nom: Last name
+Numéro de téléphone: Phone
+

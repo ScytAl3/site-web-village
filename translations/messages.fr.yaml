@@ -1,0 +1,17 @@
+#-----------------------------------------------------------------
+#     catalogue de traduction du formulaire de contact
+#-----------------------------------------------------------------
+
+# element HTML
+contact:
+  header:
+    title: Contactez nous
+    text: Laissez-nous un mot gentil (c'est toujours un plaisir), posez-nous des questions ou contactez-nous.
+    
+  form:
+    submit_bouton: Envoyer
+
+# label formulaire
+First name:  Prénon
+Last name: Nom
+Phone: Numéro de téléphone

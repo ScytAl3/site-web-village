@@ -5,9 +5,3 @@
 # Users log out
 logout:
     path: /logout
-
-history:
-    path: /{_locale}/history
-    controller: App\Controller\MainWebsiteController::history
-    requirements:
-         _locale: en|fr

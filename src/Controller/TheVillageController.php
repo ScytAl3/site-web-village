@@ -10,7 +10,7 @@ use App\Form\ContactType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Notification\ContactNotification;
 
-class MainWebsiteController extends AbstractController
+class TheVillageController extends AbstractController
 {
     /**
      * @Route("/", name="home")
@@ -19,7 +19,7 @@ class MainWebsiteController extends AbstractController
     {
         $currentEvent = $EventRepository->findCurrent();
         $nextEvent  = $EventRepository->findNext();
-        return $this->render('main_website/accueil.html.twig', [
+        return $this->render('thevillage/home.html.twig', [
             'currentEvent' => $currentEvent,
             'nextEvent' => $nextEvent,
             'current_menu' => 'home'
@@ -27,21 +27,21 @@ class MainWebsiteController extends AbstractController
     }
 
     /**
-     * @Route("/history", name="history")
+     * @Route("/{_locale}/history", name="history", requirements={"_locale"="%app.locales%"})
      */
     public function history()
     {
-        return $this->render('history/index.html.twig', [
+        return $this->render('history/history.html.twig', [
             'current_menu' => 'history',
         ]);
     }
 
     /**
-     * @Route("/{_locale}/find-us", name="find-us")
+     * @Route("/{_locale}/find-us", name="find-us", requirements={"_locale"="%app.locales%"})
      */
     public function findUs()
     {
-        return $this->render('find-us/index.html.twig', [
+        return $this->render('find-us/findus.html.twig', [
             'current_menu' => 'find-us',
         ]);
     }
@@ -49,7 +49,7 @@ class MainWebsiteController extends AbstractController
     /**
      * Call contact form
      * 
-     * @Route("/{_locale}/contact", name="contact")
+     * @Route("/{_locale}/contact", name="contact", requirements={"_locale"="%app.locales%"})
      * @param Request $request
      */
     public function contact(Request $request, ContactNotification $contactNotification)
