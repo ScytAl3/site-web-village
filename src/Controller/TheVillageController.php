@@ -13,7 +13,7 @@ use App\Notification\ContactNotification;
 class TheVillageController extends AbstractController
 {
     /**
-     * @Route({"/", "/{_locale}/"}, name="home", requirements={"_locale"="%app.locales%"})
+     * @Route("/{_locale}/home", name="home", requirements={"_locale"="%app.locales%"})
      */
     public function home(EventRepository $EventRepository)
     {
