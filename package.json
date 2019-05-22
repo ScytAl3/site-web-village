@@ -20,6 +20,7 @@
     },
     "dependencies": {
         "bootswatch": "^4.3.1",
+        "flag-icon-css": "^3.3.0",
         "leaflet": "^1.5.1",
         "places.js": "^1.16.4",
         "slick-carousel": "^1.8.1"

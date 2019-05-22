@@ -7,6 +7,8 @@ parameters:
     locale: 'en'
     # This parameter defines the codes of the locales (languages) enabled in the application
     app.locales: en|fr
+    # Parameter using with config/packages/twig.yaml
+    app_locales: [fr, en]
 
 services:
     # default configuration for services in *this* file

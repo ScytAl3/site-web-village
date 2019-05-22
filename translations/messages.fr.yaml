@@ -9,7 +9,7 @@ contact:
     text: Laissez-nous un mot gentil (c'est toujours un plaisir), posez-nous des questions ou contactez-nous.
     
   form:
-    submit_bouton: Envoyer
+    submit_boutton: Envoyer
 
 # label formulaire
 First name:  Prénon

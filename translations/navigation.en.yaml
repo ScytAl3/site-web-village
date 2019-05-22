@@ -1,0 +1,13 @@
+#-----------------------------------------------------------------
+#           translation catalog of the navigation
+#-----------------------------------------------------------------
+
+# element HTML
+navbar:
+  brand: MyBeautifulTown
+  link:
+    home: Home
+    history: History
+    events: Events
+    findus: Find us
+    contact: Contact

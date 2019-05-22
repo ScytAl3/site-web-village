@@ -1,0 +1,13 @@
+#-----------------------------------------------------------------
+#     catalogue de traduction de la navigation
+#-----------------------------------------------------------------
+
+# element HTML
+navbar:
+  brand: MaBelleVille
+  link:
+    home: Accueil
+    history: Histoire
+    events: Évenements
+    findus: Nous trouver
+    contact:  Nous contacter

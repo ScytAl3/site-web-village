@@ -9,10 +9,9 @@ contact:
     text: Leave us a kind word (it's always a pleasure), ask us questions or reach.
 
   form:
-    submit_bouton: Send
+    submit_boutton: Send
 
 # label
 Prénon: First name
 Nom: Last name
 Numéro de téléphone: Phone
-

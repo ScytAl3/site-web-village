@@ -13,7 +13,7 @@ use App\Notification\ContactNotification;
 class TheVillageController extends AbstractController
 {
     /**
-     * @Route("/", name="home")
+     * @Route({"/", "/{_locale}/"}, name="home", requirements={"_locale"="%app.locales%"})
      */
     public function home(EventRepository $EventRepository)
     {
@@ -66,7 +66,7 @@ class TheVillageController extends AbstractController
             return $this->redirectToRoute('contact');
         }
 
-        return $this->render('contact/index.html.twig', [
+        return $this->render('contact/contact.html.twig', [
             'current_menu' => 'contact',
             'contactForm' => $contactForm->createView()
         ]);

@@ -59,15 +59,15 @@ document.querySelectorAll('[data-delete]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault()
         fetch(a.getAttribute('href'), {
-                method: 'DELETE',
-                headers: {
-                    'X-Requested-with': 'XMLHttprequest',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    '_token': a.dataset.token
-                })
-            }).then(response => response.json())
+            method: 'DELETE',
+            headers: {
+                'X-Requested-with': 'XMLHttprequest',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                '_token': a.dataset.token
+            })
+        }).then(response => response.json())
             .then(data => {
                 if (data.success) {
                     a.parentNode.parentNode.removeChild(a.parentNode)
@@ -82,6 +82,9 @@ document.querySelectorAll('[data-delete]').forEach(a => {
 // require fonts
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
+
+// import lipis - flag-icon-css
+require('flag-icon-css/css/flag-icon.css');
 
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();

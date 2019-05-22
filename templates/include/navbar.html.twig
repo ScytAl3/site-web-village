@@ -7,7 +7,7 @@
         <!-- ./Change the navbar color if connected as admin -->
 
         <!-- icone/logo navbar -->
-        <a class="navbar-brand" href="{{ path('home') }}">MyBeautifulTown</a>
+        <a class="navbar-brand" href="{{ path('home') }}">{{ 'navbar.brand' | trans ({}, 'navigation') }}</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
             aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -49,26 +49,22 @@
             {% endblock %}
 
             <!-- link to change language -->
-            <ul class="navbar-nav">
+            <div class="navbar-nav">
                 <!-- recupere le nom de la route -->
                 {% set route = app.request.attributes.get('_route') %}
                 <!-- recupere les parametres de la route {slug} et {id} -->
                 {% set route_params = app.request.attributes.get('_route_params') %}
                 {% set params = route_params|merge(app.request.query.all) %}
-                {% set currentLocal = app.request.locale %}
-
-                <li class="nav-item dropdown">
-                    <a aria-expanded="false" aria-haspopup="true" class="nav-link dropdown-toggle"
-                        data-toggle="dropdown" href="#" id="navbarDropdown" role="button">
-                        Select your language
-                    </a>
-                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: 'fr' })) }}">Français</a>
-                        <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: 'en' })) }}">English</a>
-                        <a href="">{{ currentLocal }}</a>
-                    </div>
-                </li>
-            </ul>
+                <!-- recupere la variale locale en actuelle -->
+                {% set currentLocale = app.request.locale %}
+                <!-- boucle pour recuperer les flags de lipis-flag-icon correspondants aux locales autorisees -->
+                {% for locale in locales if locale != currentLocale %}
+                <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: locale })) }}">
+                    <span
+                        class="flag-icon flag-icon-{% if  locale == 'en' %}gb{% else %}{{ locale}}{% endif %} flag-icon-squared"></span>
+                </a>
+                {% endfor %}
+            </div>
             <!-- ./link to change language -->
 
             <!-- search area form -->
