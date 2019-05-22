@@ -1,6 +1,6 @@
 index:
     path: /
-    controller: App\Controller\TheVillageController::home
+    controller: App\Controller\TheVillageController::homepage
 
 # Users log out
 logout:

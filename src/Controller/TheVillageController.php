@@ -13,9 +13,9 @@ use App\Notification\ContactNotification;
 class TheVillageController extends AbstractController
 {
     /**
-     * @Route("/{_locale}/home", name="home", requirements={"_locale"="%app.locales%"})
+     * @Route("/{_locale}", defaults={"_locale"="en"}, name="home", requirements={"_locale"="%app.locales%"})
      */
-    public function home(EventRepository $EventRepository)
+    public function homepage(EventRepository $EventRepository, $_locale)
     {
         $currentEvent = $EventRepository->findCurrent();
         $nextEvent  = $EventRepository->findNext();
