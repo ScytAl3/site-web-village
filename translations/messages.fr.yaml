@@ -15,3 +15,64 @@ contact:
 First name:  Prénon
 Last name: Nom
 Phone: Numéro de téléphone
+
+#-----------------------------------------------------------------
+#     catalogue de traduction de la page d accueil
+#-----------------------------------------------------------------
+
+welcome:
+  title_page: The Village website
+  # jumbotron
+  intro:
+    title: Bonjour et bienvenue sur le site internet de la ville de Saint-Hilaire-du-Harcouët,
+    data:
+      paragraphe: |
+        Cet espace d'information vous permet de découvrir notre commune, le pôle territorial et le Bureau d'Information Touristique de Saint-Hilaire-du-Harcouët (ces deux entités étant rattachées à la Communauté d'Agglomération Mont Saint-Michel - Normandie).
+        Habitants, entreprises et touristes y trouveront des informations pratiques pour découvrir le territoire, s’y installer et y vivre au quotidien.
+        Actualités, agenda, services, démarches et patrimoine sont à portée de clic !
+    rest_button: Lire la suite
+  # tabs
+  calendar:
+    title: Calendrier des événements actuels et à venir
+    tab_current: Événements en cours
+    tab_next: Événements à venir
+    empty-event: Il n'y a aucun événement à afficher !
+
+#-----------------------------------------------------------------
+#     catalogue de traduction de la page histoire
+#-----------------------------------------------------------------
+
+history:
+  title: Saint-Hilaire-du-Harcouët, au carrefour de trois provinces.
+  data:
+    - |
+      Saint-Hilaire-du-Harcouët est une ville située au cœur du pays de la Baie du Mont-Saint-Michel. 
+      Elle se place à la croisée des chemins entre la Normandie, la Bretagne et les Pays de Loire, d’où l’appellation « carrefour des 3 provinces ».
+      Depuis sa fondation, la ville occupe une situation stratégique à l’intersection de deux grands axes, Paris – Avranches et Caen – Rennes, avec la proximité de l’autoroute des estuaires et de la mer.
+
+    - 
+      La ville est située au cœur du bocage normand où la nature y a toute sa place.
+      Elle se découvre au fil de l’eau le long de l’Airon et de la Sélune ainsi qu’aux plans d’eau du Prieuré.
+      La voie verte est un lieu privilégié de loisirs pour les randonneurs et les cyclistes.
+      La qualité de vie étant l´un de ses attributs, Saint-Hilaire-du-Harcouët offre aussi le charme des villes fleuries.
+
+    -
+      Le dynamisme local est une force pour le territoire et ses habitants. Des petites et moyennes entreprises, des services bien développés, un large éventail de commerces, une population scolaire importante, un tissu associatif dense contribuent largement à renforcer son attractivité aux portes de la Normandie et aux Marches de la Bretagne.
+
+      "Saint-Hilaire-du-Harcouët se distingue également en accueillant chaque année de nombreux touristes et visiteurs. Des temps forts contribuent au rayonnement de la ville" : le marché hebdomadaire le mercredi avec plus de 15 000 consommateurs en période estivale, la Foire Saint-Martin qui attire plus de 150 000 visiteurs chaque année.
+
+  final_word: Bienvenue à Saint- Hilaire-du-Harcouët !
+
+#---------------------------------------------------------------------
+#     catalogue de traduction de la page des événements
+#---------------------------------------------------------------------
+
+events:
+  title: Calendrier de tous les événements
+  date:
+    from: du
+    to: au
+  # bouton & pagination
+  see_button: Voir les détails
+  label_next: Suivant
+  label_previous: Précédent

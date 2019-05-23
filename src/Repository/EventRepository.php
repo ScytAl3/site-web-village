@@ -6,6 +6,7 @@ use App\Entity\Event;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 use Doctrine\ORM\QueryBuilder as DoctrineQueryBuilder;
+use Doctrine\ORM\Query;
 
 /**
  * @method Event|null find($id, $lockMode = null, $lockVersion = null)
@@ -21,13 +22,16 @@ class EventRepository extends ServiceEntityRepository
     }
 
     /**
-     * Methode qui retourne tous les evenements cree dans l ordre decroissant
+     * Methode qui retourne la requete pour avoir les events l ordre decroissant,  la requete sera a passer a la classe PaginatorInterface
+     * qui est utilisee dans la methode showAllEvent() du controller d evenements
      *
-     * @return void
+     * @return Query
      */
-    public function findAll()
+    public function findAllQuery(): Query
     {
-        return $this->findBy(array(), array('idEvent' => 'DESC'));
+        return $this->createQueryBuilder('e')
+            ->orderBy('e.idEvent', 'DESC')
+            ->getQuery();
     }
 
     /**

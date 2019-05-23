@@ -1,22 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home - The Village
-{% endblock %}
+{% block title %}{{ 'title_page.homepage_page' | trans ({}, 'navigation') }}{% endblock %}
 
 {% block body %}
 <!-- jumbotron qui affiche un introduction de l historique et un lien vers la page history -->
 <section>
     <div class="jumbotron">
         <div class="container">
-            <h1 class="display-3">Hello and welcome, </h1>
-            <p>Cillum cupidatat veniam anim exercitation nulla ad exercitation ut ea reprehenderit deserunt. Ex
-                labore
-                ullamco labore exercitation amet reprehenderit aliqua. Cupidatat eu laborum proident magna labore
-                Lorem
-                dolore. Id magna duis duis duis enim magna irure dolor sint. Aute eiusmod non proident reprehenderit
-                proident culpa aute in eu non ut commodo. Ad consequat id sit voluptate exercitation.</p>
+            <h1 class="display-4">{{ ('welcome.intro.title' | trans) }}</h1>
+            <p>{{ ('welcome.intro.data.paragraphe' | trans | nl2br) }}</p>
             <p>
-                <a class="btn btn-primary btn-lg" href="{{ path('history') }}" role=" button">Learn more &raquo;</a>
+                <a class="btn btn-primary btn-lg" href="{{ path('history') }}"
+                    role=" button">{{ 'welcome.intro.rest_button' | trans }} &raquo;</a>
             </p>
         </div>
     </div>
@@ -29,16 +24,17 @@
 
         <!-- menu tabs pour selectionner les evenements en cours ou a venir -->
         <div class="col-sm-8 pl-5">
-            <h1 class="text-center">Calendar of current and upcoming events</h1>
+            <h1 class="text-center">{{ 'welcome.calendar.title' | trans }}</h1>
             <br>
 
             <!-- tabs -->
             <ul class="nav nav-tabs">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#current">Current events</a>
+                    <a class="nav-link active" data-toggle="tab"
+                        href="#current">{{ 'welcome.calendar.tab_current' | trans }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#toCome">Events to come</a>
+                    <a class="nav-link" data-toggle="tab" href="#toCome">{{ 'welcome.calendar.tab_next' | trans }}</a>
                 </li>
             </ul>
             <!-- ./tabs -->
@@ -51,10 +47,10 @@
                     <div class="row">
                         {% if currentEvent %}
                         {% for event in currentEvent %}
-                        {{ include('include/event.html.twig') }}
+                        {{ include('events/_event.html.twig') }}
                         {% endfor %}
                         {% else %}
-                        <p>There are no events to display !</p>
+                        <p>{{ ('welcome.calendar.empty-event') | trans }}</p>
                         {% endif %}
                     </div>
                 </div>
@@ -65,10 +61,10 @@
                     <div class="row">
                         {% if nextEvent %}
                         {% for event in nextEvent %}
-                        {{ include('include/event.html.twig') }}
+                        {{ include('events/_event.html.twig') }}
                         {% endfor %}
                         {% else %}
-                        <p>There are no events to display !</p>
+                        <p>{{ ('welcome.calendar.empty-event') | trans }}</p>
                         {% endif %}
                     </div>
                 </div>

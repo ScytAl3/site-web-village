@@ -19,20 +19,25 @@
             <ul class="navbar-nav mr-auto">
                 {% block header_navigation_links %}
                 <li class="nav-item {% if  current_menu is defined and current_menu == 'home' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('home') }}">{{ 'navbar.link.home' | trans ({}, 'navigation') }}</a>
+                    <a class="nav-link"
+                        href="{{ path('home') }}">{{ 'navbar.link.home' | trans ({}, 'navigation') }}</a>
                 </li>
                 <li class="nav-item {% if  current_menu is defined and current_menu == 'history' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('history') }}">{{ 'navbar.link.history' | trans ({}, 'navigation') }}</a>
+                    <a class="nav-link"
+                        href="{{ path('history') }}">{{ 'navbar.link.history' | trans ({}, 'navigation') }}</a>
                 </li>
                 <li
                     class="nav-item {% if  current_menu is defined and current_menu == 'eventsList' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('events.list') }}">{{ 'navbar.link.events' | trans ({}, 'navigation') }}</a>
+                    <a class="nav-link"
+                        href="{{ path('events.list') }}">{{ 'navbar.link.events' | trans ({}, 'navigation') }}</a>
                 </li>
                 <li class="nav-item {% if  current_menu is defined and current_menu == 'find-us' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('find-us') }}">{{ 'navbar.link.findus' | trans ({}, 'navigation') }}</a>
+                    <a class="nav-link"
+                        href="{{ path('find-us') }}">{{ 'navbar.link.findus' | trans ({}, 'navigation') }}</a>
                 </li>
                 <li class="nav-item {% if  current_menu is defined and current_menu == 'contact' %}active{% endif %}">
-                    <a class="nav-link" href="{{ path('contact') }}">{{ 'navbar.link.contact' | trans ({}, 'navigation') }}</a>
+                    <a class="nav-link"
+                        href="{{ path('contact') }}">{{ 'navbar.link.contact' | trans ({}, 'navigation') }}</a>
                 </li>
             </ul>
             <!-- ./navbar links-->
@@ -64,9 +69,6 @@
                         class="flag-icon flag-icon-{% if  locale == 'en' %}gb{% else %}{{ locale}}{% endif %} flag-icon-squared"></span>
                 </a>
                 {% endfor %}
-                <pre>
-                    {{ dump(route) }}
-                </pre>
             </div>
             <!-- ./link to change language -->
 

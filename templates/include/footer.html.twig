@@ -1,19 +1,19 @@
 <footer class="d-flex flex-column flex-md-column text-center">
     <ul class="list-inline">
         <li class="list-inline-item">
-            <a href="{{ path('find-us') }}">Visit us</a>
+            <a href="{{ path('find-us') }}">{{ 'footer.link.visit_us' | trans ({}, 'navigation') }}</a>
         </li>
         <li class="list-inline-item">
-            <a href="#">Terms &amp; Condition</a>
+            <a href="#">{{ 'footer.link.terms' | trans ({}, 'navigation') }} &amp; Conditions</a>
         </li>
         <li class="list-inline-item">
-            <a href="#">privacy policy</a>
+            <a href="#">{{ 'footer.link.privacy' | trans ({}, 'navigation') }}</a>
         </li>
         <li class="list-inline-item">
-            <a href="{{ path('contact') }}">Contact us !</a>
+            <a href="{{ path('contact') }}">{{ 'footer.link.contact_us' | trans ({}, 'navigation') }}</a>
         </li>
     </ul>
     <p><br>&copy;
         {{ 'now'|date('Y') }}
-        - Tous droits réservés - Mon Joli Village</p>
+        - {{ 'footer.link.copyright' | trans ({}, 'navigation') }}</p>
 </footer>

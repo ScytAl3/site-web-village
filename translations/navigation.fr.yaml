@@ -2,7 +2,17 @@
 #     catalogue de traduction de la navigation
 #-----------------------------------------------------------------
 
+# block title page principale
+title_page:
+  homepage_page: Accueil - Le Village
+  history_page: Page histoire
+  events_page: Page événements
+  showEvent_page: Détail d'un événement
+  findus_page: Page nous trouver
+  contact_page: Page nous contacter
+
 # element HTML
+# navbar
 navbar:
   brand: MaBelleVille
   link:
@@ -11,3 +21,12 @@ navbar:
     events: Évenements
     findus: Nous trouver
     contact:  Nous contacter
+
+# footer
+footer:
+  link:
+    visit_us: Nous rendre visite
+    terms: Termes
+    privacy: Politique de confidentialité
+    contact_us: Contacter nous !
+    copyright: Tous droits réservés - Mon Joli Village

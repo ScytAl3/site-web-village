@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------
-#           translation catalog of the contact form
+#          translation catalog of the contact form page
 #-----------------------------------------------------------------
 
 # element HTML
@@ -15,3 +15,64 @@ contact:
 Prénon: First name
 Nom: Last name
 Numéro de téléphone: Phone
+
+#-----------------------------------------------------------------
+#           translation catalog of the home page
+#-----------------------------------------------------------------
+
+welcome:
+  title_page: The Village website
+  # jumbotron
+  intro:
+    title: Hello and welcome to the website of the city of Saint-Hilaire-du-Harcouët,
+    data:
+      paragraphe: |
+        This information area allows you to discover our town, the territorial center and the Tourist Information Office of Saint-Hilaire-du-Harcouët (these two entities are attached to the Mont Saint-Michel - Normandy Urban Community).
+        Inhabitants, businesses and tourists will find practical information to discover the territory, settle there and live there on a daily basis.
+        News, agenda, services, approaches and heritage are just a click away!
+    rest_button: Learn more
+  # tabs
+  calendar:
+    title: Calendar of current and upcoming events
+    tab_current: Current events
+    tab_next: Events to come
+    empty-event: There are no events to display!
+
+#-----------------------------------------------------------------
+#           translation catalog of the history page
+#-----------------------------------------------------------------
+
+history:
+  title: Saint-Hilaire-du-Harcouët, at the crossroads of three provinces.
+  data: 
+    - |
+      Saint-Hilaire-du-Harcouët is a city located in the heart of the country of the Bay of Mont-Saint-Michel.
+      It is located at the crossroads between Normandy, Brittany and the Pays de Loire, hence the name "crossroads of the 3 provinces".
+      Since its founding, the city occupies a strategic position at the intersection of two major axes, Paris - Avranches and Caen - Rennes, with the proximity of the highway estuaries and the sea.
+
+    - |
+      The city is located in the heart of Normandy where nature has its place.
+      It is discovered along the water along the Airon and Sélune and the water of the Priory.
+      The greenway is a privileged place of leisure for hikers and cyclists.
+      The quality of life being one of its attributes, Saint-Hilaire-du-Harcouët also offers the charm of the flower cities.
+
+    - |
+      Local dynamism is a strength for the territory and its inhabitants. Small and medium-sized businesses, well-developed services, a wide range of shops, a large school population, a dense network of associations contribute significantly to enhancing its attractiveness at the gates of Normandy and the Brittany Marches.
+
+      Saint-Hilaire-du-Harcouët is also distinguished by welcoming every year many tourists and visitors.Highlights contribute to the influence of the city ":" the weekly market on Wednesday with more than 15,000 consumers in summer, the Holy Fair -Martin which attracts over 150,000 visitors each year.
+      
+  final_word: Welcome to Saint-Hilaire-du-Harcouët!
+
+#-----------------------------------------------------------------
+#           translation catalog of the events page
+#-----------------------------------------------------------------
+
+events:
+  title: Calendar of all events
+  date:
+    from: From
+    to: to
+  # button & pagination
+  see_button: See details
+  label_next: Next
+  label_previous: Previous

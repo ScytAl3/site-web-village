@@ -1,23 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Detail of an event
-{% endblock %}
+{% block title %}{{ 'title_page.showEvent_page' | trans ({}, 'navigation') }}{% endblock %}
 
 {% block body %}
 <div class="container mt-4">
-    <h1 class="text-center">{{myEvent.gettitle}}</h1>
-    <h6 class="card-title text-center">from
-        <b>
+    <h1 class="text-center display-2">{{myEvent.gettitle}}</h1>
+    <h5 class="card-title text-center mt-5">{{ 'events.date.from' | trans }}
+        <b class="text-muted">
             {{ myEvent.startDateEvent|localizeddate('long', 'short') }}</b>
-        to
-        <b>
+        {{ 'events.date.to' | trans }}
+        <b class="text-muted">
             {{ myEvent.endDateEvent|localizeddate('long', 'short') }}</b>
-    </h6>
+    </h5>
     <br>
-    <div class="column">
+
+    <div class="row justify-content-center">
 
         <!-- afficher les images -->
-        <div class="col">
+        <div class="col-9">
             <div data-slider>
                 <!-- grid row pictures -->
                 <div class="column">
@@ -44,16 +44,16 @@
         <!-- ./afficher les images -->
 
         <!-- div pour le texte -->
-        <div class="col">
-            <h3>{{ myEvent.body }}</h3>
+        <div class="col-8">
+            <p class="p-4">{{ myEvent.body }}</p>
         </div>
         <!-- ./div pour le texte -->
-    </div>
 
-    <!-- affichage de la carte qui localise l evenement -->
-    <div id="eventMap" style="width: 100%; height: 400px" data-lat="{{ myEvent.lat }}" data-lng="{{ myEvent.lng }}">
-    </div>
-    <!-- ./affichage de la carte qui localise l evenement -->
+        <!-- affichage de la carte qui localise l evenement -->
+        <div id="eventMap" style="width: 75%; height: 400px" data-lat="{{ myEvent.lat }}" data-lng="{{ myEvent.lng }}">
+        </div>
+        <!-- ./affichage de la carte qui localise l evenement -->
 
+    </div>   
 </div>
 {% endblock %}

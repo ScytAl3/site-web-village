@@ -8,6 +8,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 use App\Repository\EventRepository;
 use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Event;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 
 class EventsController extends AbstractController
 {
@@ -34,9 +36,13 @@ class EventsController extends AbstractController
      *
      * @return Response
      */
-    public function showAllEvent(): Response
+    public function showAllEvent(PaginatorInterface $paginatorInterface, Request $request): Response
     {
-        $listEvent = $this->EventRepository->findAll();
+        $listEvent = $paginatorInterface->paginate(
+            $this->EventRepository-> findAllQuery(),    /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            6   /*limit per page*/
+        );
         return $this->render('events/list.html.twig', [
             'theEvents' => $listEvent,
             'current_menu' => 'eventsList'
@@ -54,11 +60,13 @@ class EventsController extends AbstractController
         if ($leSlug !== $slug) {
             return $this->redirectToRoute('events.show', [
                 'id' => $Event->getIdEvent(),
-                'slug' => $leSlug
+                'slug' => $leSlug,
+                'current_menu' => 'eventsList'
             ], 301);
         }
         return $this->render('events/show.html.twig', [
-            'myEvent' => $Event
+            'myEvent' => $Event,
+            'current_menu' => 'eventsList'
         ]);
     }
 }

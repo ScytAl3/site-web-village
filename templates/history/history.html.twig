@@ -1,13 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}History page
-{% endblock %}
+{% block title %}{{ 'title_page.history_page' | trans ({}, 'navigation') }}{% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
-        <h1 class="text-center">The name of this page is :
-            {{ current_menu }}! ✅</h1>
-        <br>
-        <hr>
+<div class="container mt-4 py-5">
+    <h1 class="text-center">{{ ('history.title') | trans }}</h1>
+    <br>
+    <hr>
+    <div class="row justify-content-center">
+        <div class="col-sm-7 mt-5">
+            {% for i in 0..2 %}
+            <div class="col">
+                <img src="{{ asset('build/assets/images/history/Saint-Hilaire-resize-' ~ i ~ '.jpg') }}"
+                    alt="Saint-hilaire image" class="img-fluid rounded mx-auto d-block">
+            </div>
+            <div class="mt-4 mb-4">
+                <p class="p-4">{{ ('history.data.' ~ i ) | trans | nl2br }}</p>
+                {% endfor %}
+                <h4 class="text-muted">{{ ('history.final_word') | trans }}</h4>
+            </div>
+        </div>
     </div>
+</div>
 {% endblock %}
