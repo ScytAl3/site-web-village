@@ -6,7 +6,7 @@
 {% block body %}
 
 <!-- Div pour afficher differents message en rapport avec l edition -->
-{% for message in app.flashes('success') %}
+{% for message in app.flashes('admin-success') %}
 <div class="container alert alert-success text-center">
     {{ message }}
 </div>

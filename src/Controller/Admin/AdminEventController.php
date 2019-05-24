@@ -55,7 +55,7 @@ class AdminEventController extends AbstractController
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->entityManager->flush();
-            $this->addFlash('success', 'The event has been successfully changed');
+            $this->addFlash('admin-success', 'The event has been successfully changed');
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/edit.html.twig', [
@@ -79,7 +79,7 @@ class AdminEventController extends AbstractController
         if ($createForm->isSubmitted() && $createForm->isValid()) {
             $this->entityManager->persist($event);
             $this->entityManager->flush();
-            $this->addFlash('success', 'The event was successfully created');
+            $this->addFlash('admin-success', 'The event was successfully created');
             return $this->redirectToRoute('admin.event.index');
         }
         return $this->render('admin/event/create.html.twig', [
@@ -103,7 +103,7 @@ class AdminEventController extends AbstractController
             $this->entityManager->remove($event);
             // On execute la requete de suppression - transaction
             $this->entityManager->flush();
-            $this->addFlash('success', 'The event has been successfully deleted');
+            $this->addFlash('admin-success', 'The event has been successfully deleted');
         };
         return $this->redirectToRoute('admin.event.index');
     }
