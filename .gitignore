@@ -29,5 +29,5 @@ yarn-error.log
 ###< liip/imagine-bundle ###
 
 ###> vich ###
-/public/media/
+/public/media
 ###< vich ###

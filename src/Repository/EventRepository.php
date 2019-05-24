@@ -22,7 +22,7 @@ class EventRepository extends ServiceEntityRepository
     }
 
     /**
-     * Methode qui retourne la requete pour avoir les events l ordre decroissant,  la requete sera a passer a la classe PaginatorInterface
+     * Methode qui retourne la requete pour avoir les events dans l ordre decroissant,  la requete sera a passer a la classe PaginatorInterface
      * qui est utilisee dans la methode showAllEvent() du controller d evenements
      *
      * @return Query

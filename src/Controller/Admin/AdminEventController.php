@@ -10,6 +10,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 
 class AdminEventController extends AbstractController
 {
@@ -25,10 +26,16 @@ class AdminEventController extends AbstractController
 
     /**
      * @Route("/admin", name="admin.event.index")
+     * 
+     * @return Response
      */
-    public function index()
+    public function index( PaginatorInterface $paginatorInterface, Request $request): Response
     {
-        $listEvent = $this->EventRepository->findAll();
+        $listEvent = $paginatorInterface->paginate(
+            $this->EventRepository->findAllQuery(),    /* query NOT result */
+            $request->query->getInt('page', 1), /*page number*/
+            10   /*limit per page*/
+        );
         return $this->render('admin/event/index.html.twig', [
             'eventList' => $listEvent
         ]);
