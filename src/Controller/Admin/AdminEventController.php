@@ -29,7 +29,7 @@ class AdminEventController extends AbstractController
      * 
      * @return Response
      */
-    public function index( PaginatorInterface $paginatorInterface, Request $request): Response
+    public function index(PaginatorInterface $paginatorInterface, Request $request): Response
     {
         $listEvent = $paginatorInterface->paginate(
             $this->EventRepository->findAllQuery(),    /* query NOT result */
@@ -37,7 +37,8 @@ class AdminEventController extends AbstractController
             10   /*limit per page*/
         );
         return $this->render('admin/event/index.html.twig', [
-            'eventList' => $listEvent
+            'eventList' => $listEvent,
+            'current_menu' => 'admin'
         ]);
     }
 
@@ -59,6 +60,7 @@ class AdminEventController extends AbstractController
         }
         return $this->render('admin/event/edit.html.twig', [
             'myEvent' => $event,
+            'current_menu' => 'admin',
             'form' => $editForm->createView()
         ]);
     }
@@ -82,6 +84,7 @@ class AdminEventController extends AbstractController
         }
         return $this->render('admin/event/create.html.twig', [
             'myEvent' => $event,
+            'current_menu' => 'admin',
             'form' => $createForm->createView()
         ]);
     }

@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
 
         <!-- afficher les images -->
-        <div class="col-9">
+        <div class="col-md-8">
             <div data-slider>
                 <!-- grid row pictures -->
                 <div class="column">
@@ -26,14 +26,14 @@
                     <!-- on affiche une image par defaut -->
                     <div class="col">
                         <img src="{{ asset('build/images/default/empty_picture.jpg') }}" alt="Aucune image associée"
-                            class="card-img-top" style="width: 100%; height:auto">
+                            class="card-img-top img-fluid rounded mx-auto d-block">
                     </div>
                     {% else %}
                     <!-- Sinon on itere la liste des images -->
                     {% for picture in myEvent.pictures %}
                     <div class="col mt-5">
                         <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
-                            class="card-img-top" style="width: 100%; height:auto">
+                            class="card-img-top img-fluid rounded mx-auto d-block">
                     </div>
                     {% endfor %}
                     {% endif %}
@@ -45,7 +45,7 @@
 
         <!-- div pour le texte -->
         <div class="col-8">
-            <p class="p-4">{{ myEvent.body }}</p>
+            <p class="p-4">{{ myEvent.body | nl2br }}</p>
         </div>
         <!-- ./div pour le texte -->
 
@@ -54,6 +54,6 @@
         </div>
         <!-- ./affichage de la carte qui localise l evenement -->
 
-    </div>   
+    </div>
 </div>
 {% endblock %}

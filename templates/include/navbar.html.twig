@@ -39,6 +39,12 @@
                     <a class="nav-link"
                         href="{{ path('contact') }}">{{ 'navbar.link.contact' | trans ({}, 'navigation') }}</a>
                 </li>
+                <!-- show the admin page if  connected as admin-->
+                {% if is_granted('ROLE_ADMIN') %}
+                <li class="nav-item {% if  current_menu is defined and current_menu == 'admin' %}active{% endif %}">
+                    <a class="nav-link" href="{{ path('admin.event.index') }}">admin</a>
+                </li>
+                {% endif %}
             </ul>
             <!-- ./navbar links-->
 

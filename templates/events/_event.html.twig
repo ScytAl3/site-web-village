@@ -6,7 +6,7 @@
         <!-- On affiche la premiere photo -->
         <div class="col mt-2">
             <img src="{{ vich_uploader_asset(event.picture, 'imageFile') | imagine_filter('thumb')}}"
-                alt="image de l'événement" class="card-img-top" style="width: 100%; height:auto">
+                alt="image de l'événement" class="card-img-top img-fluid rounded mx-auto d-block">
         </div>
         {% else %}
         <!-- Sinon on affiche une image par defaut -->
