@@ -97,5 +97,5 @@
 {{ form_rest(form) }}
 
 <button class="btn btn-primary">{{ button | default('Save') }}</button>
-
+<input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)" />
 {{ form_end(form) }}
