@@ -1,3 +1,4 @@
+<!-- elements du formulaire -->
 {{ form_start(form) }}
 
 <!-- Grid row titles & pictures -->
@@ -94,8 +95,15 @@
 </div>
 <!-- Grid row -->
 
-{{ form_rest(form) }}
+<button class="btn btn-primary">{{ save_button | default('Save') }}</button>
 
-<button class="btn btn-primary">{{ button | default('Save') }}</button>
-<input type="button" value="Go Back From Whence You Came!" onclick="history.back(-1)" />
 {{ form_end(form) }}
+<!-- ./elements du formulaire -->
+
+<div class="d-flex">
+    <!-- bouton pour revenir a la page precedente -->
+    <div class="ml-auto">
+        <button class="btn btn-info" onclick="history.back(-1)">&laquo; {{ back_button | default('Back') }}</button>
+    </div>
+    <!-- ./bouton pour revenir a la page precedente -->
+</div>
