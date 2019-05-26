@@ -29,11 +29,6 @@ if (inputAddress !== null) {
     })
 }
 
-//$('[data-slider]').slick({
-//    dots: true,
-//    arrows: true
-//});
-
 // any CSS you require will output into a single css file (app.css in this case)
 require('../css/app.css');
 require('../css/global.scss');
@@ -85,6 +80,27 @@ require('@fortawesome/fontawesome-free/js/all.js');
 
 // import lipis - flag-icon-css
 require('flag-icon-css/css/flag-icon.css');
+
+// initialisation du carousel
+$(document).ready(function () {
+
+    $('.slider-for').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        fade: true,
+        asNavFor: '.slider-nav'
+    });
+    $('.slider-nav').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        asNavFor: '.slider-for',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+    });
+});
+
 
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();

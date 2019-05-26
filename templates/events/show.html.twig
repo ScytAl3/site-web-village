@@ -18,28 +18,37 @@
 
         <!-- afficher les images -->
         <div class="col-md-8">
-            <div data-slider>
-                <!-- grid row pictures -->
-                <div class="column">
-                    <!-- si la collection d images est  vide -->
-                    {% if myEvent.pictures is empty %}
-                    <!-- on affiche une image par defaut -->
-                    <div class="col">
-                        <img src="{{ asset('build/images/default/empty_picture.jpg') }}" alt="Aucune image associée"
-                            class="card-img-top img-fluid rounded mx-auto d-block">
-                    </div>
-                    {% else %}
-                    <!-- Sinon on itere la liste des images -->
-                    {% for picture in myEvent.pictures %}
-                    <div class="col mt-5">
-                        <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
-                            class="card-img-top img-fluid rounded mx-auto d-block">
-                    </div>
-                    {% endfor %}
-                    {% endif %}
-                </div>
-                <!-- ./grid row pictures -->
+
+            <!-- si la collection d images est  vide -->
+            {% if myEvent.pictures is empty %}
+            <!-- on affiche une image par defaut -->
+            <div class="col mt-5">
+                <img src="{{ asset('build/images/default/empty_picture.jpg') }}" alt="Aucune image associée"
+                    class="card-img-top img-fluid rounded mx-auto d-block">
             </div>
+            <!-- sinon -->
+            {% else %}
+
+            <!-- slick-carousel -->
+            <div class="slider-for">
+                <!-- on itere la liste des images pour les recuperer dans la fenetre principal du carousel-->
+                {% for picture in myEvent.pictures %}
+                <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
+                    class="card-img-top img-fluid rounded mx-auto d-block">
+                {% endfor %}
+            </div>
+            <!-- ./slick-carousel -->
+
+            <!-- slick-carousel navigation -->
+            <div class="slider-nav">
+                <!-- on itere la liste des images pour les recuperer dans la barre de navigation du carousel-->
+                {% for picture in myEvent.pictures %}
+                <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
+                    class="card-img-top img-fluid rounded mx-auto d-block">
+                {% endfor %}
+            </div>
+            <!-- ./slick-carousel  navigation -->
+            {% endif %}
         </div>
         <!-- ./afficher les images -->
 
