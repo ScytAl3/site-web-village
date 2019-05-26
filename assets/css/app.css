@@ -1,5 +1,5 @@
-.my-body {
-    background-color: lightsteelblue;
+body {
+    background-color: lightgray;
 }
 
 .bg-img {
@@ -12,4 +12,15 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* change slick-carousel arrows color */
+.slick-prev:before,
+.slick-next:before {
+    color: maroon;
+}
+
+.adjusted .slick-arrow:before {
+    font-family: initial !important;
+    color: maroon;
 }
