@@ -1,6 +1,7 @@
 // Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
+import iconM from '../../images/map/marker-icon.png'
 
 export default class Map {
 
@@ -13,7 +14,7 @@ export default class Map {
         }
         // creation de l icone du marqueur a afficher sur la carte
         let mkIcon = L.icon({
-            iconUrl: '/images/map/marker-icon.png',
+            iconUrl: iconM,
         })
 
         // on declare une variable pour stocker les coordonnees pour le centrage du marqueur

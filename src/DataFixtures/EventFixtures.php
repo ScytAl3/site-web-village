@@ -17,13 +17,13 @@ class EventFixtures extends Fixture
         // use the factory to create a Faker\Generator instance
         $faker = Faker\Factory::create();
 
-        for ($i = 1; $i <= 15; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $event = new Event();
-
+            $startingDate = $faker->dateTimeThisMonth('now');
             $event
                 ->setTitle($faker->sentence)
-                ->setStartDateEvent($faker->dateTimeThisMonth('now'))
-                ->setEndDateEvent($faker->dateTimeBetween($event->getStartDateEvent(), '+5 days'))
+                ->setStartDateEvent( $startingDate)
+                ->setEndDateEvent($faker->dateTimeBetween( $startingDate, \strtotime('+5 days')))
                 ->setDescription($faker->text(100))
                 ->setBody($faker->text(600))
                 ->setLat(0)

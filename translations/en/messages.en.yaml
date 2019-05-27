@@ -76,3 +76,17 @@ events:
   see_button: See details
   label_next: Next
   label_previous: Previous
+
+#-----------------------------------------------------------------
+#          translation catalog of the find us page
+#-----------------------------------------------------------------
+findus:
+  title: New town of Saint-Hilaire-du-Harcouët
+  where: Contact information
+  clock: Opening time
+  home: Reception
+  civil: Civil status
+  id-card: National ID card/passports
+  paperwork: Paperwork
+  services: Local services
+  closed: Closed on public holidays

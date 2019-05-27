@@ -3,10 +3,66 @@
 {% block title %}{{ 'title_page.findus_page' | trans ({}, 'navigation') }}{% endblock %}
 
 {% block body %}
-    <div class="container mt-4">
-        <h1 class="text-center">The name of this page is :
-            {{ current_menu }}! ✅</h1>
-        <br>
-        <hr>
+<!-- Section -->
+<section class=" container my-5">
+
+    <!-- Section heading -->
+    <h2 class="h1-responsive font-weight-bold text-center my-5">Commune nouvelle de Saint-Hilaire-du-Harcouët </h2>
+    <!-- Section description -->
+    <p class="text-center w-responsive mx-auto pb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+        Fugit, error amet numquam iure provident voluptate esse quasi, veritatis totam voluptas nostrum quisquam
+        eum porro a pariatur veniam.</p>
+
+    <!-- Grid row -->
+    <div class="row">
+
+        <!-- grid column address -->
+        <div class="col-lg-4">
+            <!--  column with header -->
+            <div class="card">
+                <div class="card-body">
+                    <!-- header -->
+                    <div class="card-header card text-white bg-info mb-3">
+                        <h3 class="mt-2"><i class="fas fa-map-marker-alt"></i> {{ 'findus.title' | trans }}</h3>
+                    </div>
+                    <!-- ./header -->
+                    <p>1, place d'Armes - J. F. Blondel<br>B.P. 21025 57036<br>Metz cedex 1</p>
+                    <p>Tél. :<br>0 800 891 891 (AlloMairie)</p>                    
+
+                    <div class="card-header card text-white bg-info mb-3">
+                        <h3 class="mt-2"><i class="fas fa-clock"></i> {{ 'findus.clock' | trans }}</h3>
+                    </div>
+                    <p>
+                        <strong>{{ 'findus.home' | trans }} : </strong>du lundi au vendredi, 8h-18h et samedi, 9h-12h</p>
+                    <p>
+                        <strong>{{ 'findus.civil' | trans }} : </strong>du lundi au vendredi, 8h-16h</p>
+                    <p>
+                        <strong>{{ 'findus.id-card' | trans }} : </strong>du lundi au vendredi, 8h-16h</p>
+                    <p>
+                        <strong>{{ 'findus.paperwork' | trans }} :</strong> du lundi au vendredi, 8h-18h et samedi, 9h-12h</p>
+                    <p>
+                        <strong>{{ 'findus.services' | trans }} : </strong>du lundi au vendredi, 8h-18h et samedi, 9h-12h</p>
+                    <p class="text-muted">{{ 'findus.closed' | trans }}.</p>
+
+                </div>
+            </div>
+            <!--  ./column with header -->
+        </div>
+        <!-- ./grid column address -->
+
+        <!-- grid column for map -->
+        <div class="col-lg-8 shadow">
+
+            <!-- map -->
+            <div id="eventMap" style="width: 100%; height: 100%" data-lat="48.5778" data-lng="-1.09189">
+            </div>
+            <!-- map -->
+        </div>
+        <!-- ./grid column for map -->
+
     </div>
+    <!-- ./grid row -->
+
+</section>
+<!-- ./Section -->
 {% endblock %}

@@ -76,3 +76,17 @@ events:
   see_button: Voir les détails
   label_next: Suivant
   label_previous: Précédent
+
+#---------------------------------------------------------------------
+#     catalogue de traduction de la page nous trouver
+#---------------------------------------------------------------------
+findus:
+  title: Commune nouvelle de Saint-Hilaire-du-Harcouët
+  where: Coordonnées
+  clock: Horaires d'ouverture
+  home: Accueil
+  civil: État-civil
+  id-card: Carte nationale d'identité/passeports
+  paperwork: Formalités administratives
+  services: Services de proximité
+  closed: Fermée les jours fériés

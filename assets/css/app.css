@@ -2,7 +2,7 @@ body {
     background-color: lightgray;
 }
 
-.bg-img {
+.bg-header {
     /* The image used */
     background-image: url("../images/home/Saint-Hilaire-du-Harcouet-sm.jpg");
     height: 75vh;
@@ -14,7 +14,7 @@ body {
     background-size: cover;
 }
 
-/* change slick-carousel arrows color */
+/* Change slick-carousel arrows color */
 .slick-prev:before,
 .slick-next:before {
     color: maroon;

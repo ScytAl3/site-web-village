@@ -1,8 +1,8 @@
 <!-- Change the navbar color if connected as admin -->
 {% if is_granted('ROLE_ADMIN') %}
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow fixed-top">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary shadow">
     {% else %}
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow fixed-top">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark shadow">
         {% endif %}
         <!-- ./Change the navbar color if connected as admin -->
 
