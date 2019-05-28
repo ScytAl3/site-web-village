@@ -1,7 +1,6 @@
 {# templates/base.html.twig #}
 <!DOCTYPE html>
 <html>
-
     <head>
         <!-- required meta tags -->
         <meta charset="UTF-8">
@@ -15,12 +14,9 @@
     </head>
 
     <body>
-
         <!-- header area start   -->
         {% block header %}
-
-        <header class="bg-img">
-
+        <header>
             <!-- navbar area start-->
             {% include('include/navbar.html.twig') %}
             <!-- ./navbar area start-->
@@ -28,11 +24,9 @@
             <!-- image of the village -->
             <div class="bg-header"></div>
             <!-- ./image of the village -->
-
         </header>
         {% endblock %}
         <!-- ./header area start   -->
-
 
         <main>
             {% block body %}{% endblock %}
@@ -48,7 +42,5 @@
         {% block javascripts %}
         {{ encore_entry_script_tags('app') }}
         {% endblock %}
-
     </body>
-
 </html>
