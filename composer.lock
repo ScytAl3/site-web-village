@@ -5912,6 +5912,7 @@
         },
         {
             "name": "twig/twig",
+<<<<<<< HEAD
             "version": "v2.11.1",
             "source": {
                 "type": "git",
@@ -5922,6 +5923,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/twigphp/Twig/zipball/0418e17113266e84c03ccf758680af8abc4b22dc",
                 "reference": "0418e17113266e84c03ccf758680af8abc4b22dc",
+=======
+            "version": "v2.11.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "c344879ae57dc1487b1df3e3d8325936125ba2cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/c344879ae57dc1487b1df3e3d8325936125ba2cc",
+                "reference": "c344879ae57dc1487b1df3e3d8325936125ba2cc",
+>>>>>>> 81045eb1f915b646853f8a32a80d81a2b7529873
                 "shasum": ""
             },
             "require": {
@@ -5975,7 +5988,11 @@
             "keywords": [
                 "templating"
             ],
+<<<<<<< HEAD
             "time": "2019-06-04T11:32:47+00:00"
+=======
+            "time": "2019-05-31T06:21:42+00:00"
+>>>>>>> 81045eb1f915b646853f8a32a80d81a2b7529873
         },
         {
             "name": "vich/uploader-bundle",
