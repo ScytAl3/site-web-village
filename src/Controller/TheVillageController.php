@@ -15,7 +15,7 @@ class TheVillageController extends AbstractController
     /**
      * @Route("/{_locale}", defaults={"_locale"="en"}, name="home", requirements={"_locale"="%app.locales%"})
      */
-    public function homepage(EventRepository $EventRepository, $_locale)
+    public function homepage(EventRepository $EventRepository)
     {
         $currentEvent = $EventRepository->findCurrent();
         $nextEvent  = $EventRepository->findNext();

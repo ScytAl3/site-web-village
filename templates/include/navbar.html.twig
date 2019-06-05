@@ -69,11 +69,13 @@
                 <!-- recupere la variale locale en actuelle -->
                 {% set currentLocale = app.request.locale %}
                 <!-- boucle pour recuperer les flags de lipis-flag-icon correspondants aux locales autorisees -->
-                {% for locale in locales if locale != currentLocale %}
+                {% for locale in locales%}
+                {% if locale != currentLocale %}
                 <a class="dropdown-item" href="{{ path(route, params|merge({ _locale: locale })) }}">
                     <span
                         class="flag-icon flag-icon-{% if  locale == 'en' %}gb{% else %}{{ locale}}{% endif %} flag-icon-squared"></span>
                 </a>
+                {% endif %}
                 {% endfor %}
             </div>
             <!-- ./link to change language -->
