@@ -1,4 +1,6 @@
 {
+    "name": "stagiaire/site-web-village",
+    "description": "",
     "type": "project",
     "license": "proprietary",
     "require": {
