@@ -34,3 +34,8 @@ Développer un site web pour un village avec PHP et Symfony:
 * Auto-complétion de l'adresse pour la création ou la modification d'un événement : bibliothèque JavaScript Algolia Places.
 * Affichage de la carte interactive d'un événement ou de la page "Nous trouver" :  bibliothèque JavaScript.
 * Création des fichiers de translation (en - fr) pour permettre à l'utilisateur de changer la langue du site.
+
+## _Screenshots :_
+
+* Homepage and navbar:
+![Image of homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/01-HomePage_and_navbar.png)
