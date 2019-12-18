@@ -41,18 +41,34 @@ Développer un site web pour un village avec PHP et Symfony:
 
 ![Image of homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/01-HomePage_and_navbar.png)
 
-* Calendar - current events :
+* Homepage, calendar - current events :
 
 ![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/02-HomePage_currentEvents.png)
 
-* Calendar - events to come :
+* Homepage, calendar - events to come :
 
 ![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/03-HomePage_toComeEvents.png)
 
-* Event - show details part1 :
+* Events - show details part1 :
 
 ![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/04-Event_show_details_part1.png)
 
-* Event - show details part2 :
+* Events - show details part2 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/04-Event_show_details_part2.png)
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/05-Event_show_details_part2.png)
+
+* Find us page :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/06-FindusPage.png)
+
+* Contact us page :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/07-ContactPage.png)
+
+* Login page :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/08-LoginPage.png)
+
+* Admin CRUD event page part1 :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/09-Admin_Event_CRUD_part1.png)
