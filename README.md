@@ -41,7 +41,18 @@ Développer un site web pour un village avec PHP et Symfony:
 
 ![Image of homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/01-HomePage_and_navbar.png)
 
-* Calendar of events :
+* Calendar - current events :
 
 ![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/02-HomePage_currentEvents.png)
 
+* Calendar - events to come :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/03-HomePage_toComeEvents.png)
+
+* Event - show details part1 :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/04-Event_show_details_part1.png)
+
+* Event - show details part2 :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/04-Event_show_details_part2.png)
