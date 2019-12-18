@@ -72,3 +72,11 @@ Développer un site web pour un village avec PHP et Symfony:
 * Admin CRUD event page part1 :
 
 ![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/09-Admin_Event_CRUD_part1.png)
+
+* Admin CRUD event page part2 :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/10-Admin_Event_CRUD_part2.png)
+
+* Admin CRUD event page part3 :
+
+![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/11-Admin_Event_CRUD_part3.png)
