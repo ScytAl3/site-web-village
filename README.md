@@ -39,7 +39,7 @@ Développer un site web pour un village avec PHP et Symfony:
 
 * Homepage and navbar :
 
-![Image of homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/01-HomePage_and_navbar.png|width="50%")
+![Image of homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/01-HomePage_and_navbar.png|width=50%)
 ___
 
 * Homepage, calendar - current events :
