@@ -40,56 +40,68 @@ Développer un site web pour un village avec PHP et Symfony:
 * Homepage and navbar :
 
 ![Image of homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/01-HomePage_and_navbar.png)
-___
+
 
 * Homepage, calendar - current events :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/02-HomePage_currentEvents.png)
+![Image of calendar - current events](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/02-HomePage_currentEvents.png)
+
 
 * Homepage, calendar - events to come :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/03-HomePage_toComeEvents.png)
+![Image of calendar - events to come](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/03-HomePage_toComeEvents.png)
+___
 
 * Events - show details part1 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/04-Event_show_details_part1.png)
+![Image of event show details](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/04-Event_show_details_part1.png)
+
 
 * Events - show details part2 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/05-Event_show_details_part2.png)
+![Image of event show details](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/05-Event_show_details_part2.png)
+___
 
 * Find us page :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/06-FindusPage.png)
+![Image of Find us page](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/06-FindusPage.png)
+___
 
 * Contact us page :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/07-ContactPage.png)
+![Image of Contact us page](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/07-ContactPage.png)
+___
 
 * Login page :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/08-LoginPage.png)
+![Image of Login page](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/08-LoginPage.png)
+___
 
 * Admin CRUD event page part1 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/09-Admin_Event_CRUD_part1.png)
+![Image of Admin event page part1](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/09-Admin_Event_CRUD_part1.png)
 
 * Admin CRUD event page part2 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/10-Admin_Event_CRUD_part2.png)
+![Image of Admin event page part2](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/10-Admin_Event_CRUD_part2.png)
 
 * Admin CRUD event page part3 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/11-Admin_Event_CRUD_part3.png)
+![Image of Admin event page part3](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/11-Admin_Event_CRUD_part3.png)
+___
 
 * Translation part1 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/12-translation_part1.png)
+![Image of english homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/12.01-translation-homepage-(eng).png)
+![Image of french homepage](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/12.02-translation-homepage-(fr).png)
 
 * Translation part2 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/13-translation_part2.png)
+![Image of english findus page](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/13.01-translation-findus-(eng).png)
+![Image of french findus page](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/13.02-translation-findus-(fr).png)
 
 * Translation part3 :
 
-![Image of event](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/14-translation_part3.png)
+![Image of english contact page](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/14.01-translation-contact-(eng).png)
+![Image of french contact page](https://github.com/ScytAl3/site-web-village/blob/master/screenshots/14.02-translation-contact-(fr).png)
+___
