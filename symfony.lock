@@ -135,6 +135,9 @@
     "knplabs/knp-paginator-bundle": {
         "version": "v3.0.0"
     },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.0.1"
+    },
     "liip/imagine-bundle": {
         "version": "1.8",
         "recipe": {
@@ -161,7 +164,7 @@
         "version": "2.1.1"
     },
     "php": {
-        "version": "7.3"
+        "version": "7.4"
     },
     "phpdocumentor/reflection-common": {
         "version": "1.0.1"
@@ -296,7 +299,7 @@
             "repo": "github.com/symfony/recipes",
             "branch": "master",
             "version": "4.2",
-            "ref": "f64037a414de7d861f68e9b5b5c0e4f7425e2002"
+            "ref": "2ef246072b7c1e83e11243ab18d524e3230ff83a"
         },
         "files": [
             "./config/bootstrap.php",
@@ -583,6 +586,9 @@
         "files": [
             "./config/packages/vich_uploader.yaml"
         ]
+    },
+    "webimpress/safe-writer": {
+        "version": "2.0.0"
     },
     "webmozart/assert": {
         "version": "1.4.0"
