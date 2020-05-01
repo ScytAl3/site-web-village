@@ -4,13 +4,14 @@ namespace App\Controller\Admin;
 
 use App\Entity\Event;
 use App\Form\EventType;
+use Doctrine\ORM\EntityManager;
 use App\Repository\EventRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Knp\Component\Pager\PaginatorInterface;
 
 class AdminEventController extends AbstractController
 {
@@ -18,7 +19,7 @@ class AdminEventController extends AbstractController
     private $entityManager;
     private $EventRepository;
 
-    public function __construct(ObjectManager $entityManager, EventRepository $EventRepository)
+    public function __construct(EntityManagerInterface $entityManager, EventRepository $EventRepository)
     {
         $this->EventRepository = $EventRepository;
         $this->entityManager = $entityManager;

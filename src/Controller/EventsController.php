@@ -2,14 +2,14 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
-use Doctrine\Common\Persistence\ObjectManager;
-use App\Repository\EventRepository;
-use Symfony\Component\HttpFoundation\Response;
 use App\Entity\Event;
+use App\Repository\EventRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class EventsController extends AbstractController
 {
@@ -20,10 +20,10 @@ class EventsController extends AbstractController
     /**
      * Constructeur
      *
-     * @param ObjectManager $entityManager
+     * @param EntityManagerInterface $entityManager
      * @param EventRepository $EventRepository
      */
-    public function __construct(ObjectManager $entityManager, EventRepository $EventRepository)
+    public function __construct(EntityManagerInterface $entityManager, EventRepository $EventRepository)
     {
         // Initialisation du Repository Event
         $this->EventRepository = $EventRepository;
