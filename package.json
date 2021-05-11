@@ -27,6 +27,7 @@
         "lodash": "4.17.21",
         "node-forge": "0.10.0",
         "places.js": "^1.16.4",
+        "postcss": "8.2.10",
         "slick-carousel": "^1.8.1",
         "ssri": "8.0.1"
     }
