@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "bootswatch": "^4.3.1",
+        "browserslist": "4.16.5",
         "flag-icon-css": "^3.3.0",
         "is-svg": "4.2.2",
         "leaflet": "^1.5.1",
