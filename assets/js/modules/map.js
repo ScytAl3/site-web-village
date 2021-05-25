@@ -21,11 +21,11 @@ export default class Map {
         let mkCenter = [mymap.dataset.lat, mymap.dataset.lng]
         mymap = L.map('eventMap').setView(mkCenter, 15)
         let token = 'pk.eyJ1IjoibTMxM3JsMW5rIiwiYSI6ImNqdnV4aDZjZTFhMG80OXBuNnVmZTF5ZmUifQ.bE0Ht8Vm2iG_nFMRdinYyA'
-        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        L.tileLayer('https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             minZoom: 12,
-            id: 'mapbox.streets',
+            id: 'mapbox.mapbox-streets-v8',
             accessToken: token
         }).addTo(mymap)
         // creation du marqueur que l on ajoute a la carte
