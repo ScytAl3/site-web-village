@@ -46,9 +46,20 @@ Encore
     .enableVersioning(Encore.isProduction())
 
     // reflect the images folder structure 
-    .configureFilenames({
-        images: '[path][name].[hash:8].[ext]',
-    })
+    .configureFontRule(
+        { type: 'javascript/auto' },
+        (rule) => {
+            rule.loader = 'file-loader';
+            rule.options = { outputPath: 'fonts', name: '[name].[hash:8].[ext]', publicPath: './fonts/' };
+        }
+    )
+    .configureImageRule(
+        { type: 'javascript/auto' },
+        (rule) => {
+            rule.loader = 'file-loader';
+            rule.options = { outputPath: 'images', name: '[folder]/[name].[hash:8].[ext]', publicPath: './images/' };
+        }
+    )
 
     .copyFiles({
         from: './assets/images',
