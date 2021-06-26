@@ -15,7 +15,7 @@ import './bootstrap';
 // Api Client Places.js for autocompletion of the address
 import Places from 'places.js';
 // Import Leaflet library
-import Map from './js/modules/map.js';
+import Map from './map.js';
 // Import de Slick-carousel pour l affichage des images d un evenement
 import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
@@ -45,7 +45,7 @@ require('bootstrap');
 
 // manage static images with Webpack Encore
 // require all images
-const imagesContext = require.context('../images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
+const imagesContext = require.context('./images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
 imagesContext.keys().forEach(imagesContext);
 
 // Suppression des elements
@@ -72,13 +72,6 @@ document.querySelectorAll('[data-delete]').forEach(a => {
             .catch(e => alert(e));
     });
 });
-
-// require fonts
-require('@fortawesome/fontawesome-free/css/all.min.css');
-require('@fortawesome/fontawesome-free/js/all.js');
-
-// import lipis - flag-icon-css
-require('flag-icon-css/css/flag-icon.css');
 
 // initialisation du carousel
 $(document).ready(function () {

@@ -1,7 +1,7 @@
 // Leaflet is the leading open-source JavaScript library for mobile-friendly interactive maps
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
-import iconM from '../../images/map/marker-icon.png'
+import iconM from './images/map/marker-icon.png'
 
 export default class Map {
 
