@@ -1,7 +1,11 @@
-// assets/css/global.scss
-
 // customize some Bootstrap variables
 $primary: darken(#428bca, 20%);
+
+/* Import lipis - flag-icon-css 
+To keep only the flags of the countries you need: add the variable $include in 
+~\flag-icon-css\sass\_variables.scss (e.g. $include: us, fr;)
+*/
+@import "~flag-icon-css/sass/flag-icon.scss";
 
 //***********************************************
 // override default bootstrap with Flatly Bootswatch theme
