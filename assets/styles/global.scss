@@ -7,6 +7,9 @@ To keep only the flags of the countries you need: add the variable $include in
 */
 @import "~flag-icon-css/sass/flag-icon.scss";
 
+/* Import leaflet scss */
+@import "~leaflet";
+
 //***********************************************
 // override default bootstrap with Flatly Bootswatch theme
 //***********************************************

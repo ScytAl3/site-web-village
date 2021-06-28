@@ -15,14 +15,12 @@ import './bootstrap';
 // Api Client Places.js for autocompletion of the address
 import Places from 'places.js';
 // Import Leaflet library
-import Map from './map.js';
+import Map from './js/components/map.js';
 // Import de Slick-carousel pour l affichage des images d un evenement
 import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Initialisation de la map
-Map.init();
 // On recupere en fonction de la saisie dynamique de la rue les elements restants
 let inputAddress = document.querySelector('#event_address');
 if (inputAddress !== null) {
@@ -43,12 +41,7 @@ const $ = require('jquery');
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
 
-// manage static images with Webpack Encore
-// require all images
-const imagesContext = require.context('./images', true, /\.(png|jpg|jpeg|gif|ico|svg|webp)$/);
-imagesContext.keys().forEach(imagesContext);
-
-// Suppression des elements
+// Suppression des elements : images associées à un événement (mode admin)
 document.querySelectorAll('[data-delete]').forEach(a => {
     a.addEventListener('click', e => {
         e.preventDefault();
@@ -98,4 +91,5 @@ $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
 });
 
-console.log('Hello Webpack Encore! Edit me in assets/js/app.js');
+// Initialisation de la map
+Map.init();
