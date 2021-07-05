@@ -1,17 +1,17 @@
 'use strict';
 
-import L, { Marker } from 'leaflet';
+import L from 'leaflet';
 
-// Pour une raison obscure, lorsque nous utilisons Webpack, nous devons redéfinir les icons
-// delete L.Icon.Default.prototype._getIconUrl;
-// L.Icon.Default.mergeOptions({
-//     iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-//     iconUrl: require('leaflet/dist/images/marker-icon.png'),
-//     shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-// });
+// We redefine the icons for the use with Webpack
+delete L.Icon.Default.prototype._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+    iconUrl: require('leaflet/dist/images/marker-icon.png'),
+    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 
-class Map {
+export default class Map {
 
     static init() {
         // on recupere dans le document l element map
@@ -20,6 +20,13 @@ class Map {
         if (myMap === null) {
             return;
         }
+
+        // creation de l icone du marqueur a afficher sur la carte
+        // let mkIcon = L.icon({
+        //     iconUrl: '',
+        //     shadowUrl: '',
+        // })
+        
         // on declare une variable pour stocker les coordonnees pour le centrage du marqueur
         let mkCenter = [myMap.dataset.lat, myMap.dataset.lng];
         myMap = L.map('eventMap').setView(mkCenter, 15);
@@ -37,10 +44,8 @@ class Map {
             accessToken: token
         }).addTo(myMap);
         // Creation of the marker that is added to the map
-        L.marker(mkCenter, {
-            icon: Marker.prototype.options.icon
-        }).addTo(myMap);
+        // L.marker(mkCenter, {
+        //     icon: mkIcon
+        // }).addTo(myMap);
     }
 }
-
-export default Map;

@@ -14,9 +14,8 @@ import './bootstrap';
 
 // Api Client Places.js for autocompletion of the address
 import Places from 'places.js';
-// Import Leaflet library
-import Map from './js/components/map.js';
-// Import de Slick-carousel pour l affichage des images d un evenement
+
+/* Import slick-carousel JS & CSS */
 import 'slick-carousel';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -66,8 +65,8 @@ document.querySelectorAll('[data-delete]').forEach(a => {
     });
 });
 
-// initialisation du carousel
-$(document).ready(function () {
+// Initialization of the carousel that displays the photos of an event
+$(function () {
 
     $('.slider-for').slick({
         slidesToShow: 1,
@@ -90,6 +89,3 @@ $(document).ready(function () {
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover();
 });
-
-// Initialisation de la map
-Map.init();
