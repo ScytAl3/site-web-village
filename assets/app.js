@@ -12,51 +12,9 @@ import './styles/global.scss';
 // start the Stimulus application
 import './bootstrap';
 
-// Api Client Places.js for autocompletion of the address
-import Places from 'places.js';
-
-// On recupere en fonction de la saisie dynamique de la rue les elements restants
-let inputAddress = document.querySelector('#event_address');
-if (inputAddress !== null) {
-    let place = Places({
-        container: inputAddress
-    });
-    place.on('change', e => {
-        document.querySelector('#event_city').value = e.suggestion.city;
-        document.querySelector('#event_zip_code').value = e.suggestion.postcode;
-        document.querySelector('#event_lat').value = e.suggestion.latlng.lat;
-        document.querySelector('#event_lng').value = e.suggestion.latlng.lng;
-    });
-}
-
 // Need jQuery? Install it with "yarn add jquery", then uncomment to require it.
 const $ = require('jquery');
 // this "modifies" the jquery module: adding behavior to it
 // the bootstrap module doesn't export/return anything
 require('bootstrap');
-
-// Suppression des elements : images associées à un événement (mode admin)
-document.querySelectorAll('[data-delete]').forEach(a => {
-    a.addEventListener('click', e => {
-        e.preventDefault();
-        fetch(a.getAttribute('href'), {
-            method: 'DELETE',
-            headers: {
-                'X-Requested-with': 'XMLHttprequest',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                '_token': a.dataset.token
-            })
-        }).then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    a.parentNode.parentNode.removeChild(a.parentNode);
-                } else {
-                    alert(data.error);
-                }
-            })
-            .catch(e => alert(e));
-    });
-});
 
