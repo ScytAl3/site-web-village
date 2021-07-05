@@ -1,6 +1,5 @@
 /* Require fonts */
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
-/*@import '@fortawesome/fontawesome-free/js/all.js';*/
 
 /*------------------------------------*/
 
@@ -18,15 +17,4 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-/* Change slick-carousel arrows color */
-.slick-prev:before,
-.slick-next:before {
-    color: maroon;
-}
-
-.adjusted .slick-arrow:before {
-    font-family: initial !important;
-    color: maroon;
 }

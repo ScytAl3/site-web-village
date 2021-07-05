@@ -1,0 +1,14 @@
+/* Import slick-carousel SCSS */
+@import "~slick-carousel/slick/slick.scss";
+@import "~slick-carousel/slick/slick-theme.scss";
+
+/* Change slick-carousel arrows color */
+.slick-prev:before,
+.slick-next:before {
+    color: maroon;
+}
+
+.adjusted .slick-arrow:before {
+    font-family: initial !important;
+    color: maroon;
+}

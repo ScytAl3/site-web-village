@@ -1,5 +1,13 @@
 // customize some Bootstrap variables
-$primary: darken(#428bca, 20%);
+// $primary: darken(#428bca, 20%);
+
+//***********************************************
+// override default bootstrap with Flatly Bootswatch theme
+//***********************************************
+// the ~ allows you to reference things in node_modules
+@import "~bootswatch/dist/flatly/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/flatly/bootswatch";
 
 /* Import lipis - flag-icon-css 
 To keep only the flags of the countries you need: add the variable $include in 
@@ -9,11 +17,3 @@ To keep only the flags of the countries you need: add the variable $include in
 
 /* Import leaflet scss */
 @import "~leaflet";
-
-//***********************************************
-// override default bootstrap with Flatly Bootswatch theme
-//***********************************************
-// the ~ allows you to reference things in node_modules
-@import "~bootswatch/dist/flatly/variables";
-@import "~bootstrap/scss/bootstrap";
-@import "~bootswatch/dist/flatly/bootswatch";

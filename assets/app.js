@@ -15,11 +15,6 @@ import './bootstrap';
 // Api Client Places.js for autocompletion of the address
 import Places from 'places.js';
 
-/* Import slick-carousel JS & CSS */
-import 'slick-carousel';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-
 // On recupere en fonction de la saisie dynamique de la rue les elements restants
 let inputAddress = document.querySelector('#event_address');
 if (inputAddress !== null) {
@@ -65,27 +60,3 @@ document.querySelectorAll('[data-delete]').forEach(a => {
     });
 });
 
-// Initialization of the carousel that displays the photos of an event
-$(function () {
-
-    $('.slider-for').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        fade: true,
-        asNavFor: '.slider-nav'
-    });
-    $('.slider-nav').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        asNavFor: '.slider-for',
-        dots: true,
-        centerMode: true,
-        focusOnSelect: true
-    });
-});
-
-
-$(document).ready(function () {
-    $('[data-toggle="popover"]').popover();
-});

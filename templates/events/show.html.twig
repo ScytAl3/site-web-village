@@ -2,6 +2,11 @@
 
 {% block title %}{{ 'title_page.showEvent_page' | trans ({}, 'navigation') }}{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('carousel') }}
+{% endblock %}
+
 {% block body %}
 <div class="container mt-4">
     <h1 class="text-center display-2">{{myEvent.gettitle}}</h1>
@@ -24,7 +29,7 @@
             <!-- on affiche une image par defaut -->
             <div class="col mt-5">
                 <img src="{{ asset('build/images/default/empty_picture.jpg') }}" alt="Aucune image associée"
-                    class="card-img-top img-fluid rounded mx-auto d-block">
+                     class="card-img-top img-fluid rounded mx-auto d-block">
             </div>
             <!-- sinon -->
             {% else %}
@@ -33,18 +38,20 @@
             <div class="slider-for">
                 <!-- on itere la liste des images pour les recuperer dans la fenetre principal du carousel-->
                 {% for picture in myEvent.pictures %}
-                <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
-                    class="card-img-top img-fluid rounded mx-auto d-block">
+                <div>
+                    <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
+                         class="card-img-top img-fluid rounded mx-auto d-block">
+                </div>
                 {% endfor %}
             </div>
             <!-- ./slick-carousel -->
 
             <!-- slick-carousel navigation -->
-            <div class="slider-nav">
+            <div class="slider-nav my-2">
                 <!-- on itere la liste des images pour les recuperer dans la barre de navigation du carousel-->
                 {% for picture in myEvent.pictures %}
                 <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="image de l'événement"
-                    class="card-img-top img-fluid rounded mx-auto d-block">
+                     class="card-img-top img-fluid rounded mx-auto d-block">
                 {% endfor %}
             </div>
             <!-- ./slick-carousel  navigation -->
@@ -68,6 +75,7 @@
 {% endblock %}
 
 {% block javascripts %}
-{{ parent() }}
-{{ encore_entry_script_tags('map') }}
+    {{ parent() }}
+    {{ encore_entry_script_tags('map') }}
+    {{ encore_entry_script_tags('carousel') }}
 {% endblock %}
