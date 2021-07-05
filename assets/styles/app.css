@@ -1,7 +1,13 @@
 /* Require fonts */
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
-/*------------------------------------*/
+/* Import leaflet css */
+@import '~leaflet/dist/leaflet.css';
+
+
+/*
+-----------------------------------
+*/
 
 body {
     background-color: lightgray;

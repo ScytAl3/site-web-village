@@ -11,9 +11,10 @@
 
 /* Import lipis - flag-icon-css 
 To keep only the flags of the countries you need: add the variable $include in 
-~\flag-icon-css\sass\_variables.scss (e.g. $include: us, fr;)
+~\flag-icon-css\sass\_variables.scss (e.g. $include: gb, fr;)
 */
 @import "~flag-icon-css/sass/flag-icon.scss";
 
-/* Import leaflet scss */
-@import "~leaflet";
+/*
+-----------------------------------
+*/
