@@ -2,6 +2,11 @@
 
 {% block title %}{{ 'title_page.findus_page' | trans ({}, 'navigation') }}{% endblock %}
 
+{% block stylesheets %}
+{{ parent() }}
+{{ encore_entry_link_tags('map') }}
+{% endblock %}
+
 {% block body %}
 <!-- Section -->
 <section class=" container my-5">
