@@ -1,0 +1,37 @@
+/*
+    - override default bootstrap with Flatly Bootswatch theme -
+*/
+@import "~bootswatch/dist/flatly/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "~bootswatch/dist/flatly/bootswatch";
+
+/* Import lipis - flag-icon-css 
+To keep only the flags of the countries you need: add the variable $include in 
+~\flag-icon-css\sass\_variables.scss (e.g. $include: gb, fr;)
+*/
+@import "~flag-icon-css/sass/flag-icon.scss";
+
+/* fontawesome 5 free */
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+
+
+/*--------------------------------
+  Header: Background img
+----------------------------------*/
+header {
+    .bg-header {
+        /* The image used */
+        background-image: url("../images/home/Saint-Hilaire-du-Harcouet-sm.jpg");
+        height: 75vh;
+        min-height: 600px;
+    
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
