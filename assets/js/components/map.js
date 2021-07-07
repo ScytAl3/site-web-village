@@ -1,6 +1,4 @@
-'use strict';
-
-import L from 'leaflet';
+import * as L from 'leaflet';
 
 // We redefine the icons for the use with Webpack
 delete L.Icon.Default.prototype._getIconUrl;
@@ -9,7 +7,6 @@ L.Icon.Default.mergeOptions({
     iconUrl: require('leaflet/dist/images/marker-icon.png'),
     shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
-
 
 export default class Map {
 
@@ -23,8 +20,7 @@ export default class Map {
 
         // creation de l icone du marqueur a afficher sur la carte
         // let mkIcon = L.icon({
-        //     iconUrl: '',
-        //     shadowUrl: '',
+        //     iconUrl: mkrIcon,
         // })
         
         // on declare une variable pour stocker les coordonnees pour le centrage du marqueur
@@ -47,5 +43,6 @@ export default class Map {
         // L.marker(mkCenter, {
         //     icon: mkIcon
         // }).addTo(myMap);
+        L.marker(mkCenter).addTo(myMap);
     }
 }
